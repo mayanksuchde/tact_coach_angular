@@ -7,7 +7,7 @@
 ## Installation
 
 ```sh
-git clone https://github.com/teamtact/tactui_templates.git
+git clone https://github.com/teamtact/tact_coach_angular
 ```
 
 ### Setup

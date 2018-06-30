@@ -1,0 +1,8 @@
+{
+    "API_BASE" : "http://devapi.talentaccurate.com",
+    "clientId" : "391445302189-7vk7183ot4uu2te0k41oj2utp181qk1k.apps.googleusercontent.com",
+    "clientSecret" : "sEPILce7aRnFfmsumlX1kgtl",
+    "apiKey" :"",
+    "scopes" : "email profile openid",
+    "domain" : ""
+}

@@ -1,0 +1,34 @@
+<section class="inner-pg-dash-view" ng-controller="FeedBackController" >
+        <div class="container top-container">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default questionPanel">
+                        <div class="panel-body">
+                            
+                                <div class="comment_container" >
+                                        <div class="commentsbox">
+                                            <h4 class="comments-heading">FeedBack Form</h4>
+                                            <p>Please share your Feedback about the project. Required fields are marked
+                                                <span class="red">*</span>
+                                            </p>
+                                            <br>
+                                            <form id="commentform" name="vm.activityForm" data-form="{{ vm.activityForm }}" ng-submit="vm.sendFeedBackComment(vm.activityForm.$valid)" novalidate>
+                                                <div id="comment-message" class="form-row form-group" ng-class="{ 'has-error' : vm.activityForm.feedbackComment.$invalid && !vm.activityForm.email.$pristine && vm.activityForm.$submitted }">
+                                                    <input placeholder="Enter Your Title" required type="text" name="title" class="form-control">
+                                                    <p ng-show="vm.activityForm.$submitted && vm.activityForm.feedbackComment.$invalid " class="help-block">You forgot to enter title!</p>
+                                                    <textarea required name="comments" class="form-control" placeholder="Please Provide Your Valuable Feedback" id="comment" cols="100" rows="10" tabindex="4"
+                                                        ng-model="vm.feedbackComment.comments"></textarea>
+
+                                                    <p ng-show="vm.activityForm.$submitted && vm.activityForm.feedbackComment.$invalid " class="help-block">You forgot to enter comments!</p>
+                                                </div>
+                                                <input class="btn-primary btn btn-md" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit Comment">
+                                            </form>
+                
+                                        </div>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>            
+    </section>
+    

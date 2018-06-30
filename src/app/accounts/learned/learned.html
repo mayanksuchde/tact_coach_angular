@@ -1,0 +1,40 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <a href="" class="btn pull-right btn-default" ng-click="vm.addEmptyRow()">
+            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp; Add Row</a>
+        <h3>Components/Things I learned from my colleagues</h3>
+    </div>
+    <form  name="vm.aboutMeForm" ng-submit="submitForm(vm.aboutMeForm.$valid)" novalidate>
+    <section class="page_content">
+        <div class="row" data-name="desired-headline">
+            <div class="col-md-12 form-group field field--required">
+                <label for="exampleTextarea" class="block-label">Share some experience in career that you solved critical problems</label>
+                <p>Make your statement in 1 or 2 simple lines! Little bit technical details okay
+                    but too much tech-lingo will make them bored!</p>
+                <div class="form-group"
+                        ng-class="{ 'has-error' : vm.aboutMeForm.aboutMeTextarea.$invalid && 
+                        !vm.aboutMeForm.aboutMeTextarea.$pristine && vm.aboutMeForm.$submitted }"
+                         ng-repeat="info in vm.learnedInfo.list track by $index">
+                    <button ng-if="vm.learnedInfo.list.length > 1" ng-click="vm.deleteRow($index)" class="btn btn-danger remove_btn">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <input type="text" 
+                    class="form-control"
+                    ng-model="info.learned"
+                     
+                    id="github-link" name="github-link" required placeholder="Example: I have learned about Angular Js "
+                        style="">
+                </div>
+                <p ng-if="vm.aboutMeForm.$submitted" ng-messages="vm.aboutMeForm.github-link.$error">
+                    <span class="help-block" ng-message="required">The field is required</span>
+                </p>
+
+            </div>
+        </div>
+    </section>
+    <div class="page_footer">
+        <a href="" class="btn-primary btn pull-left" ng-click="vm.updateLearnedInfo()">Save</a>
+        <!-- <a href="" class="btn-white btn pull-right" ui-sref="">Next</a> -->
+    </div>
+    </form>
+</section>

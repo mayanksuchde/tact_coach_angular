@@ -1,0 +1,237 @@
+<style>
+	.page_inner p{
+		padding: 15px;
+	}
+</style>
+
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="page_inner">
+                            <div class="page_heading">
+                                <a ui-sref="challenges" class="btn btn-default pull-right">Back</a>
+                                <h3 tact-challenge-id="{{vm.challengeInfo.chid}}">{{ vm.challengeInfo.title }}</h3>
+                                <div class="post-meta">
+                                    <div class="post-meta-info">
+                                        <label>Started:
+                                            <span class="">{{ vm.getLocaleDate(vm.challengeInfo.created_date) }}</span>
+                                        </label>
+                                        <label>Level:
+                                            <span class="hard">{{ vm.challengeInfo.level }}</span>
+                                        </label>
+                                        <label>
+                                            <b>{{ vm.challengeInfo.views_count }}</b>
+                                            <span class="">Views</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="chall-details">
+                                        <div class="content-area" ng-bind-html="vm.challengeInfo.content">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <h3 class="text-center">Leaderboard</h3>
+                                    <br/>
+                                    <br/>
+                                    <table class="table table-bordered table-striped activites">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-color topborder">#</th>
+                                                <th class="bg-color topborder">Name</th>
+                                                <th class="bg-color topborder">Score</th>
+                                                <th class="bg-color topborder">Last Updated</th>
+                                                <th class="bg-color topborder">Project Link</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tbody ng-show="vm.challengeInfo.participants_count > 3">		
+                                        	                                         	
+                                            <tr ng-repeat="score in vm.challengeInfo.leader_board track by $index">
+                                                <td>
+                                                    <span>{{ $index+1 }}</span>
+                                                </td>
+                                                <td>{{ score.username | maskEmail }}</td>
+                                                <td>
+                                                    <span>
+                                                        <a class="ext_link ng-binding" href="" target="_blank">
+                                                            {{ score.overall_score || '-' }}
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span>{{ score.updated_date | date:'MM/dd/yyyy' }}</span>
+                                                </td>
+                                                <td >
+                                                    <span ng-if="! score.project_id == 0">  
+                                                        <a class="ext_link ng-binding" href="/project/{{score.project_id}}" target="_blank">
+                                                            View Project 
+                                                        </a>
+                                                    </span>  
+                                                   
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody ng-show="vm.challengeInfo.participants_count == 3">
+                                        	<tr>
+                                            	<td class="crbase text-center" colspan="5" style="height: 120px; padding-top: 50px;">
+                                            		No Data Available
+                                            	</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br/>
+                            
+                            <!-- 
+                            	
+                            -->
+                            <div ng-if="vm.authentication.isUserLoggedIn()">
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1" ng-if="!vm.challengeInfo.challenge_status || vm.challengeInfo.challenge_status == 0">
+                                        <form class="challengeForm" name="vm.challengeForm" novalidate>
+                                            <h4>Ready to join our challenge?</h4>
+                                            
+                                            <p> 
+                                            	There are lot of candidates already working on our challenges. 
+                                            	Accept this challenge and show off your real time programming skills, not just algorithms.
+                                            </p>
+                                            <!-- 
+                                            <div class="form-group" ng-class="{ 'has-error' : vm.challengeForm.githubLink.$invalid && !vm.challengeForm.githubLink.$pristine && vm.challengeForm.$submitted }">
+                                                <input type="text" ng-model="vm.codingInfo.gitLink" name="githubLink" class="form-control" placeholder="Enter gitub link"
+                                                    id="githubLink" required>
+                                                <p ng-if="vm.challengeForm.$submitted && !vm.challengeForm.githubLink.$pristine" ng-messages="vm.challengeForm.githubLink.$error">
+                                                    <span class="help-block" ng-message="pattern">Enter valid github link</span>
+                                                    <span class="help-block" ng-message="required">Github link is required</span>
+                                                </p>
+                                            </div>
+                                            <div class="form-group" ng-class="{ 'has-error' : vm.challengeForm.laLink.$invalid && !vm.challengeForm.laLink.$pristine && vm.challengeForm.$submitted }">
+                                                <input type="text" class="form-control" placeholder="Enter learning analytics link" id="laLink" name="laLink" ng-model="vm.codingInfo.laLink"
+                                                    required=false />
+                                                <p ng-show="vm.challengeForm.$submitted && vm.challengeForm.laLink.$invalid && !vm.challengeForm.laLink.$pristine" class="help-block">laLink is required.</p>
+                                            </div>
+                                             -->
+                                            <button type="submit" class="btn btn-primary" ng-click="vm.acceptChallenge(vm.challengeForm.$valid)">Accept Challenge</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="col-md-10 col-md-offset-1" ng-if="vm.challengeInfo.challenge_status == 1">
+                                    	<h4>Score</h4>
+                                    	<br>                                    	
+                                   		<ul>
+                                   			<li style="padding-bottom:10px;">Learning Analytics score: {{vm.challengeInfo.la_score || 'Not Available'}}</li>
+                                   			<li style="padding-bottom:10px;">Curiosity score: {{vm.challengeInfo.curiosity_score || 'Not Available'}}</li>
+                                   			<li style="padding-bottom:10px;">Overall score: {{vm.challengeInfo.overall_score || 'Not Available'}}</li>                                    			
+                                   		</ul>
+                                   		
+                                   		<br>                                   		
+                               			<div class="form-group" ng-class="{ 'has-error' : vm.challengeForm.githubLink.$invalid && !vm.challengeForm.githubLink.$pristine && vm.challengeForm.$submitted }">
+                                            <input type="text" ng-model="vm.challengeInfo.project_link" ng-bind-html="vm.challengeInfo.project_link" name="githubLink" class="form-control" placeholder="Enter gitub link"
+                                                id="githubLink" required>
+                                            <p ng-if="vm.challengeForm.$submitted && !vm.challengeForm.githubLink.$pristine" ng-messages="vm.challengeForm.githubLink.$error">
+                                                <span class="help-block" ng-message="pattern">Enter valid github link</span>
+                                                <span class="help-block" ng-message="required">Github link is required</span>
+                                            </p>
+                                        </div>  
+                                      <!--  <div ng-repeat="score in vm.challengeInfo.leader_board track by $index">
+                                            <p>
+                                                {{score.project_link}}
+                                            </p>
+                                        </div>-->
+                                        <button type="submit" class="btn-primary btn pull-left" ng-click="vm.syncProject(vm.challengeForm.$valid)">Sync Project</button>                                  	
+                                        <button type="submit" class="btn-primary btn pull-right" ng-click="vm.finishProjectInfo(challengeSynForm.$valid)">Finish Project</button>                                  	                                  	
+                                    </div>
+                                </div>                                
+                            </div>                           
+                            
+                            
+                            <div ng-if="!vm.authentication.isUserLoggedIn()">                            	
+                            	<hr>
+                            	
+                            	<div class="row">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <form class="challengeForm" name="vm.challengeForm" novalidate>
+                                            <h4>Ready to join our challenge?</h4>                                            
+                                            <p> 
+                                            	There are lot of candidates already working on our challenges. 
+                                            	Accept this challenge and show off your real time programming skills, not just algorithms.
+                                            </p>                                            
+                                            <button class="btn btn-primary">
+                                            	                                            
+                                            	<a ui-sref="login" style="color:white;text-decoration:  none;">
+                                            		Login to join the challenge
+                                            	</a>
+                                            </button>                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                    <hr>
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <form class="challengeForm" name="vm.forwardForm" novalidate>
+                                            <h4>Share challenge to your friends</h4>
+                                            <p>Share it with your friends and win cool gift cards every week </p>
+                                            <br/>
+                                            <!--
+                                            <div ng-if="!vm.authentication.isUserLoggedIn()" class="form-group" ng-class="{ 'has-error' : vm.forwardForm.fromMail.$invalid && !vm.forwardForm.fromMail.$pristine && vm.forwardForm.$submitted }">
+                                                <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                                class="form-control" placeholder="Enter your email" id="fromMail" name="fromMail" ng-model="vm.sharingInfo.fromMail"
+                                                    required=false />
+                                                <p ng-if="vm.forwardForm.$submitted && vm.forwardForm.fromMail.$invalid && !vm.forwardForm.fromMail.$pristine" ng-messages="vm.forwardForm.fromMail.$error">
+                                                    <span class="help-block" ng-message="pattern">Enter a valid email</span>
+                                                    <span class="help-block" ng-message="required">Your email is required</span>
+                                                </p>
+                                            </div>
+                                            -->
+                                            <div ng-if="vm.authentication.isUserLoggedIn()">
+                                                <input type="hidden" ng-model="vm.challengeInfo.challenge_id" name="{{vm.challengeInfo.challenge_id}}" />
+                                            </div>
+                                            <div class="form-group" ng-class="{ 'has-error' : vm.forwardForm.toMail.$invalid && !vm.forwardForm.toMail.$pristine && vm.forwardForm.$submitted }">
+                                                <div ng-if="vm.authentication.isUserLoggedIn()">
+                                                    <input type="hidden" ng-model="vm.challengeInfo.sender_email" />        
+                                                </div>
+                                                <div ng-if="!vm.authentication.isUserLoggedIn()">
+                                                    <input type="email"                                     ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                                        ng-model="vm.challengeInfo.sender_email" name="toMail" class="form-control" placeholder="Enter your friend's email" id="toMail" >
+    
+                                                        <p ng-if="vm.forwardForm.$submitted && !vm.forwardForm.toMail.$pristine" ng-messages="vm.forwardForm.toMail.$error">
+                                                            <span class="help-block" ng-message="pattern">Enter a valid email</span>
+                                                            <span class="help-block" ng-message="required">Recipient's email is required</span>
+                                                        </p>
+                                                </div>
+                                                <input type="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                                ng-model="vm.challengeInfo.to_email" name="toMail" class="form-control" placeholder="Enter your friend's email" id="toMail" >
+                                                <p ng-if="vm.forwardForm.$submitted && !vm.forwardForm.toMail.$pristine" ng-messages="vm.forwardForm.toMail.$error">
+                                                    <span class="help-block" ng-message="pattern">Enter a valid email</span>
+                                                    <span class="help-block" ng-message="required">Recipient's email is required</span>
+                                                </p>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" ng-click="vm.forwardChallenge(vm.forwardForm.$valid)">
+                                            &nbsp;&nbsp;&nbsp;Share&nbsp;&nbsp;&nbsp;
+                                            </button>
+                                            
+                                            <div style="height: 35px;">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

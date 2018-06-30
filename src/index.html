@@ -1,0 +1,324 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-112326093-1', 'none');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<head>
+  <!-- build:baseUrl -->
+  <base href="/">
+  <!--  this will create a <base href="/your website baseUrl"> when Gulp compiles the build project -->
+
+  <!-- endbuild -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="TalentAccurate | Demo is the new resume">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalentAccurate | Demo is the new resume</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Tact">
+  <link rel="icon" sizes="128x128" href="images/icon-128x128.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Tact">
+  <link rel="apple-touch-icon" href="images/icon-128x128.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/icon-128x128.png">
+  <meta name="msapplication-TileColor" content="#2F3BA2">
+  <meta name="google-signin-client_id" content='391445302189-7vk7183ot4uu2te0k41oj2utp181qk1k.apps.googleusercontent.com'>
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#2F3BA2">
+
+  <!--[if IE]>
+  <link rel="shortcut icon" href="favicon.ico">
+  <![endif]-->
+
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../bower_components/angular-ui-notification/dist/angular-ui-notification.css">
+  <link rel="stylesheet" href="../bower_components/angularjs-slider/dist/rzslider.min.css">
+  <link rel="stylesheet" href="../bower_components/highcharts/css/highcharts.css">  
+  <link rel="stylesheet" href="../bower_components/angular-bootstrap/ui-bootstrap-csp.css">    
+  
+  <!-- build:css(./.tmp) css/main.min.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
+  <link rel="stylesheet" href="../bower_components/angularjs-slider/dist/rzslider.css" />
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+  <!-- endbower -->
+  
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
+  
+  <!-- Owl Stylesheets for Partners -->
+  <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+
+
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+  <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/?locale=en">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Header view for templates -->
+  <div ui-view="header-view"></div>
+
+  <!-- Main view for templates -->
+  <div ui-view="container-view" class="page"></div>
+  
+  <!-- Footer view for templates -->
+  <div ui-view="footer-view"></div>
+  <script src="https://apis.google.com/js/client:platform.js" async defer>
+  </script>
+
+  <!-- build:main(./.tmp) js/main.min.js -->
+  <!-- bower:js -->
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../bower_components/angular-messages/angular-messages.js"></script>
+  <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="../bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+  <script src="../bower_components/ngstorage/ngStorage.js"></script>
+  <script src="../bower_components/ngSanitize/index.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../bower_components/angularjs-slider/dist/rzslider.js"></script>
+  <script src="../bower_components/highcharts/highcharts.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="../bower_components/angular-aria/angular-aria.js"></script>
+  <script src="../bower_components/angular-material/angular-material.js"></script>
+  <!-- endbower -->
+  <script src="../bower_components/angular-ui-router/release/stateEvents.min.js"></script>
+
+  <script src="app/app.js"></script>
+
+  <!-- shared  -->
+  <script src="app/shared/directives/index.js"></script>
+  
+  <script src="app/shared/service/global.service.js"></script>
+  <script src="app/shared/service/http.request.factory.js"></script>
+  <script src="app/shared/service/auth.service.js"></script>
+  <script src="app/shared/service/google.service.js"></script>
+
+  <script src="app/page-header/page-header.directive.js"></script>
+  <script src="app/page-footer/page-footer.directive.js"></script>
+
+  <script src="app/home/home.controller.js"></script>
+  <script src="app/login/login.controller.js"></script>
+  <script src="app/forgot/forgot.controller.js"></script>
+  <script src="app/forgot/reset.password.controller.js"></script>
+  <script src="app/company/company.controller.js"></script>
+  <script src="app/login/login.redirect.controller.js"></script>
+
+  <!-- Components: accounts -->
+  <script src="app/accounts/about-me/about.me.component.js"></script>
+  <script src="app/accounts/coding-activities/coding.activities.component.js"></script>
+  <script src="app/accounts/learned/learned.component.js"></script>
+  <script src="app/accounts/problem-solved/problem.solved.component.js"></script>
+  <script src="app/accounts/skills/skills.component.js"></script>
+
+  <!-- Components: profile -->
+  <script src="app/profile/profile.service.js"></script>
+  <script src="app/profile/view.controller.js"></script>
+
+  <script src="app/strategy/strategy.service.js"></script>
+  <script src="app/strategy/strategy.controller.js"></script>
+
+  <script src="app/article/article.controller.js"></script>
+  <script src="app/article/article.service.js"></script>
+
+  <script src="app/feeds/feeds.controller.js"></script>
+  <script src="app/feeds/feeds.service.js"></script>
+
+  <script src="app/resume/resume.controller.js"></script>
+  <script src="app/resume/resume.service.js"></script>
+
+  <script src="app/challenge/challenge.service.js"></script>
+  <script src="app/challenge/challenge.controller.js"></script>
+  
+  <script src="app/mentor/mentor.service.js"></script>
+  <script src="app/mentor/mentor.controller.js"></script>
+  
+  <script src="app/paypal/paypal.service.js"></script>
+  <script src="app/paypal/paypal.controller.js"></script>
+  
+  <script src="app/anonymous-referral/anonymous.service.js"></script>
+  <script src="app/anonymous-referral/anonymous.controller.js"></script>
+
+  <script src="app/register/register.service.js"></script>
+  <script src="app/register/register.controller.js"></script>
+
+  <script src="app/settings/settings.controller.js"></script>
+  <script src="app/settings/credits/credits.controller.js"></script>
+
+  <!--Fakecompany search -->
+  <script src="app/fakecompany/fakecompany.controller.js"></script>
+  <script src="app/fakecompany/fakecompany.service.js"></script>
+  
+  <!-- public view Rockstar -->
+  <script src="app/publicview/rockstar/viewprofile.service.js"></script>
+  <script src="app/publicview/rockstar/viewprofile.controller.js"></script>
+
+  <!-- behavioral technical test -->
+  <script src="app/behavioral-and-technical-test/behavioral.technical.test.service.js"></script>
+  <script src="app/behavioral-and-technical-test/behavioral.technical.test.controller.js"></script>
+
+  <!-- Components:For settings -->
+  <script src="app/settings/basic-details/basic.details.components.js"></script>
+  <script src="app/settings/address/address.components.js"></script>
+  <script src="app/settings/password/password.components.js"></script>
+  <script src="app/settings/market-predictions/market.predictions.components.js"></script>
+  <script src="app/settings/goals/goals.components.js"></script>
+  <script src="app/settings/project-links/project.links.components.js"></script>
+
+  <!--job info -->
+  <script src="app/job-info/job.info.service.js"></script>
+  <script src="app/job-info/job.info.controller.js"></script>
+
+  <!--Message -->
+  <script src="app/message/messages/messages.components.js"></script>
+
+  <script src="app/message/message.controller.js"></script>
+
+
+  <script src="app/employer/employer.service.js"></script>
+  <script src="app/employer/employer.controller.js"></script>
+
+
+
+
+  
+
+  <!-- company job info -->
+  <script src="app/company-job-info/company.job.info.service.js"></script>
+  <script src="app/company-job-info/company.job.info.controller.js"></script>
+
+  <!-- psa entry-->
+  <script src="app/psa-entries/psa.entries.service.js"></script>
+  <script src="app/psa-entries/psa.entries.controller.js"></script>
+
+   <!-- Email subscribe and upsubcribe option-->
+   <script src="app/email-unsubscribe/email.unsubscribe.service.js"></script>
+   <script src="app/email-unsubscribe/email.unsubscribe.controller.js"></script>
+
+   <!-- Peer page comments and skills rating-->
+   <script src="app/peer-rating-skill/peer.rating.service.js"></script>
+   <script src="app/peer-rating-skill/peer.rating.controller.js"></script>
+
+   <!-- Weekly challenge leaderboard-->
+   <script src="app/challenge/challenge.leaderboard.service.js"></script>
+   <script src="app/challenge/challenge.weekly.leaderboard.controller.js"></script>
+
+   <!-- Weekly admin report-->
+   <script src="app/weekly-admin/weekly.admin.service.js"></script>
+   <script src="app/weekly-admin/weekly.admin.controller.js"></script>
+
+
+   <!-- Project info page-->
+   <script src="app/project-info/project.info.service.js"></script>
+   <script src="app/project-info/project.info.controller.js"></script>
+   
+    <!-- Feedback page-->
+    <script src="app/feedback/feedback.controller.js"></script>
+    <script src="app/feedback/feedback.service.js"></script>
+
+
+
+   <!--chart -->    
+   <!-- 
+   <script src="app/chart/chart.controller.js"></script>
+   <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+   <script src="../node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+    -->    
+ 
+
+  
+  <script src="js/Chart.min.js"></script>
+  <!-- 
+  <script src="js/platform.js"></script>
+  -->
+
+  <!-- Behavioral and technical test -->
+  <script src="app/behavioral-and-technical-test/behavioral.technical.test.controller.js"></script>  
+  <script src="app/behavioral-and-technical-test/behavioral.technical.test.service.js"></script>
+  
+  <!-- EView: Candidates -->
+  <script src="app/candidates/candidates.service.js"></script>
+  <script src="app/candidates/candidates.controller.js"></script>  
+
+  <script src="app/resume/resume.service.js"></script>    
+  <script src="app/resume/resume.controller.js"></script>
+
+  <!-- Fake company identifier
+  <script src="app/fake-company-identifier/fake.company.identifier.controller.js"></script>  
+  <script src="app/fake-company-identifier/fake.company.identifier.service.js"></script>  
+
+  -->
+  
+
+  <!-- build:templates -->
+
+  <!-- minify and concatenate all template files -->
+  <!-- endbuild -->
+
+  <!-- endbuild -->
+
+  <script>
+    angular.element(document).ready(function () {
+      angular.bootstrap(document, ['app']);
+    });
+    
+    $(document).ready(function () {    	
+    	
+        //carousel options
+        $('#quote-carousel').carousel({
+            pause: true
+            , interval: 10000
+        	, 
+        });
+    
+	});
+  </script>
+
+</body>
+
+</html>

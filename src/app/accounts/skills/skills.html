@@ -1,0 +1,60 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <a href="" class="btn pull-right btn-default" ng-click="vm.addEmptySkillRow()">
+            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp; Add Skill
+        </a>
+        <h3>Skills</h3>
+    </div>
+    <section class="page_content">
+        <div class="row skills-header">
+            <div class="col-md-5">
+                <label>Name of the Skill</label>
+            </div>
+            <div class="col-md-2">
+                <label>Years</label>
+            </div>
+            <div class="col-md-2">
+                <label>Months</label>
+            </div>
+            <div class="col-md-2">
+                <label>Self Rating</label>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+        <div class="row skills-list" ng-repeat="(key, skill) in vm.skillsInfo.skills track by $index">
+            <div class="form-group col-md-5">
+                <input ng-model="skill.element" type="text" class="form-control text-input"> </div>
+            <div class="col-md-2">
+                <select 
+                ng-model="skill.exp_years" 
+                name="category-group" 
+                id="categoryGroup" 
+                class="form-control dropdown-select"
+                ng-options="i as i for i in vm.helper.years">
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select ng-model="skill.exp_months" 
+                class="form-control"
+                ng-options="i as i for i in vm.helper.months">
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-control" ng-model="skill.self_rating"
+                ng-options="i as i for i in vm.helper.rating">
+                </select>
+            </div>
+            <div class="col-md-1" ng-if="vm.skillsInfo.skills.length > 1">
+                <button class="btn btn-danger btn-small btn-circle" ng-click="vm.deleteRow($index)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    
+    </section>
+    <div class="page_footer">
+        <a href="" class="btn-primary btn pull-left" ng-click="vm.updateSkillsInfo()">Save</a>
+        <a href="" class="btn-white btn pull-right" ui-sref="accounts.activities">Next</a>
+    </div>
+</section>

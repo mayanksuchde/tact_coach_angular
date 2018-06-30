@@ -1,0 +1,118 @@
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+
+                    <!-- box -->
+                    <!-- 
+					<div class="col-md-12">
+                            <article class="feed_box">
+                                <div class="feed_head">
+                                    <div class="feed_right">
+                                    </div>
+                                    <div class="feed_left">
+                                        <div class="avator img">
+                                              
+                                        </div>
+                                        <h3>Upload your profile photo</h3>
+                                        
+                                    </div>
+                                </div>
+                                <div class="feed_cont">
+                                        <div class="feed_cont">
+                                                <form id = "uploadbanner" method = "post" action = "#">
+                                                    <input id = "fileupload" type = "file" />
+                                                    <hr>
+                                                    <br>
+                                                    <input type = "submit" value = "submit" id = "submit" />
+                                                </form>
+                                        </div>     
+                                </div>
+                                <div class="feed_foot">
+                                </div>
+                            </article>
+                        </div>
+                        -->
+                    <!--/ box -->
+
+
+                    <!-- box -->
+                    <!-- <div class="col-md-12">
+                        <article class="feed_box">
+                            <div class="feed_head">
+                                <div class="feed_left">
+                                    <div class="avator img">
+
+                                    </div>
+                                    <h3>Photo from linkedin</h3>
+
+                                </div>
+                            </div>
+                            <div class="feed_cont">
+                                <p>If you want to upload the the photo from linked please click the check box</p>
+                                <div class="photo_uploader_container">
+                                    <form id="photoUploadForm" name="photoUploadForm">
+                                        <div class="form-group">
+                                            <input class="form-check-input" id="isLinkedIn" type="checkbox" name="isLinkedIn" value="true">
+                                            <label class="form-check-label" for="isLinkedIn">Upload the photo from linkedin</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block" ng-click="vm.submitPhoto(vm.photoUploadForm.$valid)">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="feed_foot">
+                            </div>
+                        </article>
+                    </div> -->
+                    <!--/ box -->
+
+                    <!-- box -->
+                    <div class="col-md-12">
+                        <article class="feed_box">
+                            <div class="feed_head">
+                                <div class="feed_right">
+                                    <!-- 
+                                        <span class="votes">
+                                            <a component="post/upvote" href="#"	class="vote_left">
+                                                <i class="fa fa-chevron-up"></i>
+                                            </a>
+                                            <span component="post/vote-count" class="vote_count">-2</span>
+                                            <a component="post/downvote" href="#" class="vote_right">
+                                                <i class="fa fa-chevron-down"></i>
+                                            </a>
+                                        </span>
+                                         -->
+                                </div>
+                                <div class="feed_left">
+                                    <div class="avator img">
+
+                                    </div>
+                                    <h3>Upload your resume</h3>
+
+                                </div>
+                            </div>
+                            <div class="feed_cont">
+                                <div class="resume_upload_container">
+                                    <form id="resumeUploadForm" name="vm.resumeUploadForm">
+                                        <div ng-if="vm.resume_location != ''">{{ vm.resume_location }}</div>
+                                        <div class="form-group">
+                                            <input class="form-control" file-model="vm.resumeInfo.file" id="resumeFile" type="file" name="resumeFile" ng-model="vm.resumeInfo.file"
+                                            />
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block" ng-click="vm.submitResume(vm.resumeUploadForm.$valid)">Upload</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="feed_foot">
+                            </div>
+                        </article>
+                    </div>
+                    <!--/ box -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

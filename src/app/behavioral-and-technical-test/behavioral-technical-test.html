@@ -1,0 +1,125 @@
+<style>
+    .w3-card {
+        height: 110px;
+        position: relative;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+    .w3-panel {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        padding-top: 10px;
+    }
+    .user-detail {
+        -webkit-transition:all linear 0.5s;
+        transition:all linear 0.5s;
+    }
+    .user-detail.ng-hide {
+        opacity: 0;
+    }
+    .user-detail.ng-show {
+        opacity: 0;
+    }
+    #loader {
+        z-index: 1;
+        border: 5px solid #f3f3f3;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #555;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 46%;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        #seven-backdrop {
+            position: absolute;
+            display: none;
+            top: -16px;
+            bottom: 0px;
+            background: black;
+            border: 1px solid;
+            left: 0;
+            right: 0;
+            opacity: 0.3;
+            margin: 15px;
+            border-radius: 5px;
+        }
+
+</style>
+<div class="container top-container">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default questionPanel">
+            <div class="panel-body">
+                <h2>Behavioral & Technical Test (Open book Test)</h2>
+                <br>
+                
+                <h4>{{ vm.technology | capitalize }} </h4>
+                
+                <p>Note: You can google questions and get the answers! However write them in your own format. We do check copy paste answers in our algorithms. If you copy and paste them, we should be able to find them!</p>
+                
+                <br><br>
+                                
+                <h6 class="astreik" ng-show="vm.questions">*Required</h6>
+                
+                <form name="sevenForm">
+                    <div id="seven-backdrop">
+                        <div id="loader"></div>
+                    </div>
+                    <div class="form-group user-detail" ng-show="vm.userAndMail">
+                        <label for="name">Full Name <span class="astreik">*</span></label>
+                        <input type="text" stop-ccp class="form-control" id="name" ng-model="vm.fullname" required>
+                    </div>
+                    <div class="form-group user-detail" ng-show="vm.userAndMail">          
+                        <label for="email">Your Email Id <span class="astreik">*</span></label>
+                        <input type="email" stop-ccp class="form-control" id="email" ng-model="vm.email" required>                      
+                    </div>
+                    <div class="form-group text-center" ng-show="vm.userAndMail">
+                        <button type="submit" class="btn btn-primary" ng-click="vm.getBATQuestions()">Generate Questions</button>
+                    </div>
+                    <div class="form-group user-detail" ng-if="vm.questionDetails">          
+                        <label for="email">
+                        	{{vm.questionDetails.question}}
+                        	<input type="hidden" ng-model="vm.questionDetails.question" />
+                        	<span class="astreik">*</span></label>
+                        <textarea class="form-control" stop-ccp rows="5" id="comment" ng-model="vm.questionDetails.current_answer" required></textarea>
+                    </div>  
+                    <div class="form-group user-detail" ng-if="vm.feedback">          
+                        <h2>You have written the test successfully!</h2>
+                        <label for="feedback">Please give feedback about the test<span class="astreik">*</span></label>
+                        <textarea class="form-control" stop-ccp rows="5" id="comment" ng-model="vm.comment" required></textarea>
+                    </div>
+                    <div class="form-group col-md-12 user-detail" ng-show="vm.thankYou">
+                        <div class="col-md-6 col-md-offset-3">  
+                            <div class="w3-panel w3-card">
+                                <div class="col-md-12" style="padding-bottom: 20px;top: 30%">
+                                    <a  style="font-size: 16px; font-weight: 400; cursor: pointer;"> 
+                                        Thank You for attending the open book test
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center user-detail" ng-show="vm.questionDetails">
+                        <button type="submit" class="btn btn-primary" ng-click="vm.submitAnswer(vm.questionDetails)">Next </button>
+                    </div>
+                    <div class="form-group text-center user-detail" ng-show="vm.feedback">
+                        <button type="submit" class="btn btn-success" ng-click="vm.submitFeedback()">Send Feedback </button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>

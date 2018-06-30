@@ -1,0 +1,42 @@
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-block-left heading-panel">
+                            <a class="pull-right btn btn-primary" 
+                            ui-sref="view-profile">View Public Profile >></a>
+                            <h3>Update your Profile</h3>
+                            <p>Add information about yourself to share on your profile.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <nav class="side_menu">
+                            <ul>
+                                <li>
+                                    <a ui-sref=".aboutme" ui-sref-active="active">About Me</a>
+                                </li>
+                                <li >
+                                    <a ui-sref=".skills" ui-sref-active="active">Skills</a>
+                                </li>
+                                <li>
+                                    <a ui-sref=".activities" ui-sref-active="active">Coding Activities</a>
+                                </li>
+                                <li>
+                                    <a ui-sref=".problemsolved" ui-sref-active="active">Problem Solved</a>
+                                </li>
+                                <li>
+                                    <a ui-sref=".learned" ui-sref-active="active">Learned</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-md-9" ui-view="right-view">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+<section class="inner-pg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-12"
+                        ng-switch="vm.isRegistered">
+                        <div class="form-block-right login"
+                            ng-switch-when=false>
+                            <h2 class="text-center">Register a new account</h2>
+                            <p class="text-center">Already Signed Up? Click here to
+                                <a ng-if="!vm.isEmployer" ui-sref="login">Login</a>
+                                <a ng-if="vm.isEmployer" ui-sref="employer-login">Login</a>                                
+                            </p>
+                            
+                            
+                            
+                            <form name="vm.registerForm"
+                                novalidate>
+
+								<!--                                 
+                                <div class="social-signin text-center">
+                                    <a title="Google Plus" ng-click="vm.googleSignIn()">
+                                        <i class="fa fa-google-plus"></i>&nbsp;&nbsp;Continue with Google</a>
+                                       
+                                </div>
+                                -->
+                                
+                                <br/>
+                                
+                                <div class="form-group"
+                                    ng-class="{ 'has-error' : vm.registerForm.email.$invalid && !vm.registerForm.email.$pristine && vm.registerForm.$submitted }">
+                                    <input type="email"
+                                        ng-model="vm.user.email"
+                                        name="email"
+                                        class="form-control"
+                                        placeholder="Email Address"
+                                        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                        required
+                                        id="email">
+                                    <p ng-if="vm.registerForm.$submitted && !vm.registerForm.email.$pristine"
+                                        ng-messages="vm.registerForm.email.$error">
+                                        <span class="help-block"
+                                            ng-message="pattern">Enter valid email</span>
+                                        <span class="help-block"
+                                            ng-message="required">Email is required</span>
+                                    </p>
+                                </div>
+                                <div class="form-group"
+                                    ng-class="{ 'has-error' : vm.registerForm.password.$invalid && !vm.registerForm.password.$pristine && vm.registerForm.$submitted }">
+                                    <input type="password"
+                                        ng-model="vm.user.password"
+                                        name="password"
+                                        class="form-control"
+                                        placeholder="Password"
+                                        required
+                                        id="password">
+                                    <p ng-show="vm.registerForm.$submitted && !vm.registerForm.password.$pristine"
+                                        ng-messages="vm.registerForm.password.$error">
+                                        <span class="help-block"
+                                            ng-message="required">Password is required</span>
+                                    </p>
+                                </div>
+                                <div class="form-group"
+                                    ng-class="{ 'has-error' : vm.user.confirmPassword != vm.user.password || vm.registerForm.confirmPassword.$invalid && !vm.registerForm.confirmPassword.$pristine && vm.registerForm.$submitted }">
+                                    <input type="password"
+                                        ng-model="vm.user.confirmPassword"
+                                        name="confirmPassword"
+                                        class="form-control"
+                                        placeholder="Confirm Password"
+                                        required
+                                        id="confirmPassword">
+                                    <p ng-show="vm.registerForm.$submitted  && !vm.registerForm.confirmPassword.$pristine"
+                                        ng-messages="vm.registerForm.confirmPassword.$error">
+                                        <span class="help-block"
+                                            ng-message="required">Confirm password is required</span>
+                                        <span class="help-block"
+                                            ng-show="vm.user.confirmPassword !== vm.user.password">Password Mismatch.</span>
+                                    </p>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-primary btn-block"
+                                    ng-click="vm.submitRegister(vm.registerForm.$valid)">Register</button>
+                            </form>
+                        </div>
+                        <div ng-switch-when=true>
+                            <h3>You have been registered successfully!</h3>
+                            <p>Please login using this
+                                <a ng-if="!vm.isEmployer" ui-sref="login">link</a>
+                                <a ng-if="vm.isEmployer" ui-sref="employer-login">link</a>                                
+                            </p>
+                        </div><!--
+                        <div ng-switch-when=false>
+                                <h3>You already registered!</h3>
+                                <p>Please login using this
+                                    <a ui-sref="login"> link</a>
+                                </p>
+                            </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<section class="inner-pg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-block-right login">
+                            <h2 class="text-center">Candidate Login</h2>
+                            <p class="text-center">Don't have an account? Click here to
+                                <a href="/register">Register</a>
+                            </p>
+                            <form  name="vm.activityForm" ng-submit="getEmployerLogin(vm.activityForm.$valid)" novalidate>
+
+                                    <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Username *  </label>
+                                                <input type="text" class="form-control boxes text-input input--full" id="username" name="username" placeholder="Ente username"
+                                                    ng-model="vm.basicDetailInfo.username" style="">                            
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Passowrd </label>
+                                                <input type="text" class="form-control boxes text-input input--full" id="Full-name" name="Full-name" placeholder="Enter your password"
+                                                    ng-model="vm.basicDetailInfo.fullname" style="">                            
+                                            </div>
+                                        </div>
+                                        
+
+                            <button type="submit"  href="" ui-sref= "employer-feed"
+                                    class="btn btn-primary btn-block"
+                                    ng-click=>Login
+                            </button>
+                            </form>
+                            <div class="btm-sec text-center">
+                                <a href="/forgot"
+                                    class="frgt-pswd">Forgot your password?</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,48 @@
+
+<section class="inner-pg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-block-right login">
+                            <h2 class="text-center" id="title">Forgot your password?</h2>
+                            <form name="vm.forgotForm" id="form-div"
+                            	ng-submit="submitForm(vm.nForgotForm.$valid)" 
+                            	novalidate>
+                                <div class="form-group" 
+                                    ng-class="{ 'has-error' : vm.forgotForm.email.$invalid 
+                                    && !vm.forgotForm.email.$pristine 
+                                    && vm.forgotForm.$submitted }">
+                                    <input type="email"
+                                        name="email"
+                                        ng-model="vm.user.email"
+                                        class="form-control"
+                                        placeholder="Email Address"
+                                        id="email"
+                                        ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                    	required
+                                    >
+                                        
+                                	<p ng-if="vm.forgotForm.$submitted" ng-messages="vm.forgotForm.email.$error">
+                                        <span class="help-block" ng-message="pattern">enter valid email</span>
+                                        <span class="help-block" ng-message="required">email is required</span>
+                                    </p>
+                                            
+                                </div>                                        
+                                        
+                                <button type="submit" id="send-button"
+                                class="btn btn-primary btn-block" 
+                                ng-click="vm.submitForgot(vm.forgotForm.$valid)">Reset Password</button>
+                                    
+                            </form>
+                            <div class="btm-sec text-center">
+                                <a href="/login" class="frgt-pswd">Login</a>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

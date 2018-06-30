@@ -1,0 +1,39 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>About Me</h3>
+    </div>
+    <form  name="vm.aboutMeForm" ng-submit="submitForm(vm.aboutMeForm.$valid)" novalidate>
+        <section class="page_content">
+            <div class="layout xs-mth0">
+                <div class="layout__item xs-12of12" data-name="desired-headline">
+                    <div class="form-group field field--required">
+                        <label for="exampleTextarea" class="block-label"> Say about your experience, skills, leadership and learning ability in 2-3 lines! It should be very
+                            simple and succinct </label>
+                        <p>This content will act like an Elevator Pitch when you have 40 seconds to convince your employer!</p>
+                        <div class="form-group"
+                        ng-class="{ 'has-error' : vm.aboutMeForm.aboutMeTextarea.$invalid && 
+                        !vm.aboutMeForm.aboutMeTextarea.$pristine && vm.aboutMeForm.$submitted }"
+                        >           
+                        <textarea 
+                            class="form-control" 
+                            id="aboutMeTextarea"
+                            name="aboutMeTextarea" 
+                            rows="5" 
+                            required
+                            ng-model="vm.aboutMeInfo.about_me" 
+                            style="">
+                        </textarea>
+                        <p ng-if="vm.aboutMeForm.$submitted" ng-messages="vm.aboutMeForm.aboutMeTextarea.$error">
+                            <span class="help-block" ng-message="required">The field is required</span>
+                        </p>
+                    </div>             
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="page_footer">
+            <button type="submit" ng-click="vm.updateAboutMeInfo()" href="" class="btn-primary btn pull-left">Save</button>
+            <a href="" class="btn-white btn pull-right" ui-sref="accounts.skills">Next</a>
+        </div>
+    </form>
+</section>

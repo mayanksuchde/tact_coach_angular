@@ -1,0 +1,196 @@
+<section class="search-candidate-wrapper">
+    <div class="container">
+        <div class="col-md-12">
+            <!-- TODO: Enable after the employer search -->
+            <!-- <section class="">
+                <div class="page_heading">
+                    <h3>Candidates({{ vm.candidates.length }})</h3>
+                    <form name="candidatesSearchForm" class="form-group">
+                        <div class="search-input form-group input-group">
+                            <input type="search" class="form-control" 
+                            ng-change="vm.filterCandidate()"
+                            ng-model="vm.candidateSearchKey" 
+                            name="candidates-search-key">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </section> -->
+            <section class="page_heading">
+                <div class="col-md-6">
+                    <div class="row">
+                        <label class="col-md-4" for="email">Learning Ability</label>
+                        <div class="col-md-8">
+                            <rzslider rz-slider-model="vm.learning_slider.value" rz-slider-options="vm.learning_slider.options"></rzslider>
+                        </div>
+                        <label class="col-md-4" for="email">Attitude</label>
+                        <div class="col-md-8">
+                            <rzslider rz-slider-model="vm.attitude_slider.value" rz-slider-options="vm.attitude_slider.options"></rzslider>
+                        </div>
+                        <label class="col-md-4" for="email">Matching Experience</label>
+                        <div class="col-md-8">
+                            <rzslider rz-slider-model="vm.expr_slider.value" rz-slider-options="vm.expr_slider.options"></rzslider>
+                        </div>
+                        <label class="col-md-4" for="email">Cultural Fit</label>
+                        <div class="col-md-8">
+                            <rzslider rz-slider-model="vm.cultural_slider.value" rz-slider-options="vm.cultural_slider.options"></rzslider>
+                        </div>
+                        <label class="col-md-4" for="email">Tool Exploring skills</label>
+                        <div class="col-md-8">
+                            <rzslider rz-slider-model="vm.tool_slider.value" rz-slider-options="vm.tool_slider.options"></rzslider>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="search-chart"></div>
+                </div>
+            </section>
+            <section class="page_inner candidate_profile" ng-repeat="item in vm.filteredCandidates track by $index">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row profiles" ng-class="{lastItem: $last}">
+                        <div class="col-md-12">
+                            <div class="col-md-10">
+                                <div class="col-md-2 candidate-id text-center bg-primary" style="background-color: #4fbf9f">
+                                    <h4>
+                                        <a href="#/rockstar/{{item.hashedId}}"  style="color:white;">{{item.hashed_id}}</a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-10 text-right">
+                                    <div class="row">
+                                        <label>
+                                            <a href="https://www.github.com">GitHub rating</a>
+                                        </label>
+                                        <label style="color:black; font-weight: 300;">45</label>
+                                    </div>
+                                    <div class="row">
+                                        <label>
+                                            <a href="https://www.stackoverflow.com">Stackoverflow rating</a>
+                                        </label>
+                                        <label style="color:black; font-weight: 300;">65</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 cdetails">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Looking Title</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5>Senior Software Developer</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Strong Areas</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5 class="items" ng-repeat="strong in item.strongAreas">{{strong}}{{$last ? '' : ','}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Weak Areas</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5 class="items" ng-repeat="week in item.weakAreas">{{week}}{{$last ? '' : ','}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Projects</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5 class="items" ng-repeat="project in item.projects">
+                                                <a ng-click="getCandidateProjectInfo(item)"> {{project.name}}{{$last ? '' : ','}}</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Top problem solved</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5>Initialized Architecture with existing components</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Learned</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5>Learned leadership qualities from Chris</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!-- 
+                                                <div class="col-md-3">
+                                                    <h5>Commonality</h5>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <h5>None Available</h5>
+                                                </div>
+                                                 -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Uniqueness </h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5>None Available</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>Previous Assignments</h5>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <h5>
+                                                <a>yes</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <h5>
+                                                <a href="#/rockstar/{{item.hashedId}}">View More</a>
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-9">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="col-md-12 cpercent">
+                                    <div style="line-height: 30px;">
+                                        <div style="font-size: 32px;" class="c-percentage-wrap">
+                                            {{item.percentage}}
+                                        </div>
+                                        <div style="font-size: 10px;">
+                                            Percentage
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 cexp">
+                                    <div style="line-height: 30px;">
+                                        <div style="font-size: 32px;">
+                                            5.6
+                                        </div>
+                                        <div style="font-size: 10px;">
+                                            years experience
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <div class="row text-center">
+                <ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.pageSize"></ul>
+            </div> -->
+        </div>
+    </div>
+</section>

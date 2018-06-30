@@ -1,0 +1,69 @@
+
+	<style>
+		.w3-card {
+			height: 170px;
+			position: relative;
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+		}
+	
+		.w3-panel {
+			margin-top: 16px;
+			margin-bottom: 16px;
+			border-radius: 3px;
+			padding-top: 10px;
+		}
+	
+		.bottom-date {
+			position: absolute;
+			bottom: 8px;
+		}
+		
+		ul.psa_recommendation li{
+			margin: 8px 0;
+		}
+		
+		 .bottom-align-text {
+			   position: absolute;
+			   bottom: 8px;
+			right: 0;
+		  }
+		  h3{
+			  text-align: center;
+		  }
+	</style>
+<section class="inner-pg-dash ng-scope">
+    <ul class="queue_list queue_list_recommend ng-scope" ng-repeat="strategy in vm.strategyInfo track by $index">
+        <li class="item item_recommend item_type_recommend col-sm-4">
+            <div class="item_content">
+                <div class="img_thum">
+                    <a href="#"><img src="img/image-6.jpg" alt="" title=""></a>
+                </div>
+                <div class="item_content_text">
+                    <div class="title_head">
+                        <a  href="/strategies/{{strategy.url}}"target="_blank">
+                            {{strategy.title}}
+                        </a>
+                    </div>
+                    <p class="domain">
+                        Toronto, Canada
+                    </p>
+                    <nav class="item_content_actions recommend_footer">
+                        <ul class="item_content_actionscontainer">
+                            <li class="item_content_savecontainer">
+                            <span class="item_content_save">									
+                                <span class="item_content_savetext">											
+                                </span>
+                            </span>
+                            </li>
+                            <li class="item_content_hidecontainer">
+                                <span class="item_content_overflow">
+                                     <div id="talkbubble">Unique:<span class="count">65</span>%</div>
+                                </span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </li>
+        </ul>
+</section>

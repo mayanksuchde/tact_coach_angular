@@ -1,0 +1,137 @@
+<section class="page_inner">
+	
+	<div class="page_heading">
+    	<h3>Goals</h3>
+    </div>
+        
+    <section class="page_content" ng-if="vm.currentGoalsList && vm.currentGoalsList.length == 0 && !vm.createGoalFlag">
+	    <h4>Current Goal</h4>
+	    <div class="row">
+	        <div class="col-md-6">
+	            <p>No current goals at the moment.</p>
+	        </div>
+	        <div class="col-md-6">
+	            <button class="btn btn-success" ng-click="vm.createGoal()">Create Goal</button>
+	        </div>
+	    </div>
+    
+    </section>
+    
+    <section class="page_content" ng-if="vm.canCreateGoal && vm.createGoalFlag">
+        <form name="vm.goal_form" method="post" id="new_candidates_profile_headline">
+
+            <h4>Create Goal</h4>
+            <div class="row">
+                <div class="col-md-12 inline_holder">
+                    <!--
+                    <span>I have skills</span>                    
+                     
+                    <span class="form-group input-group md" 
+                        ng-class="{ 'has-error' : vm.goal_form.skills.$invalid && !vm.goal_form.skills.$pristine }">
+                        <input type="text" name="skills" placeholder="" class="form-control" ng-model="vm.goal.skills" required>
+                    </span>
+                    -->
+                    
+                    <span>In </span>
+                    <span class="form-group input-group sm" 
+                        ng-class="{ 'has-error' : vm.goal_form.days.$invalid && !vm.goal_form.days.$pristine }">
+                        <input type="text" name="days" placeholder="" class="form-control" ng-model="vm.goal.days" required>
+                    </span>
+                    <span> days</span>
+                                        
+                    <span> I will learn</span>
+                    <span class="form-group input-group md" 
+                        ng-class="{ 'has-error' : vm.goal_form.goaldescription.$invalid && !vm.goal_form.goaldescription.$pristine }">
+                        <input type="text" name="goaldescription" placeholder="" class="form-control" 
+                        ng-model="vm.goal.goaldescription" required style="width:300px;">
+                    </span>
+                </div>
+            </div>
+            <!-- 
+            <div class="row">
+                <div class="col-md-4 inline_holder">
+                    <label>Github commits</label>
+                </div>
+                <div class="col-md-6 inline_holder">
+                    <span>(</span>
+                    <span class="form-group input-group sm" ng-class="{ 'has-error' : vm.goal_form.commitcount.$invalid && !vm.goal_form.commitcount.$pristine }">
+                            <input type="text" name="commitcount" placeholder="" class="form-control" ng-model="vm.goal.commitcount" required>
+                    </span>
+                    <span> commits)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 inline_holder">
+                    <label>Learning Entries - commits</label>
+                </div>
+                <div class="col-md-6 inline_holder">
+                    <span>(</span>
+                    <span class="form-group input-group sm" ng-class="{ 'has-error' : vm.goal_form.entriescount.$invalid && !vm.goal_form.entriescount.$pristine }">
+                            <input type="text" name="entriescount" placeholder="" class="form-control" ng-model="vm.goal.entriescount" required>
+                    </span>
+                    <span> entries)</span>
+                </div>
+            </div>
+            -->
+            <!--code for click -->
+            <div class="row">
+                <button type="submit" ng-click="vm.saveGoalDetails()" href="" class="btn-primary btn pull-right">Save</button>
+            </div>
+        </form>
+
+    </section>
+        
+   	<section class="page_content" ng-if="!vm.canCreateGoal">
+    	<section class="page_inner" style="box-shadow: none"">
+        	<h4>Current Goal</h4>
+            
+            <div class="row" ng-repeat="goal in vm.currentGoalsList"> 
+                <div class="col-md-8">
+                    <br>
+                    <p>{{ goal.GOAL_DESCRIPTION }}</p>
+                    <br>   
+                    <!-- will fix it later              
+                    <a class="btn btn-success" ui-sref="settings.goalEntries({goalId: goal.GID})">View Goal Details</a>
+                    -->
+                </div>
+                <div class="col-md-4  text-center ">
+                    <h1 class="fz50">{{ goal.DAYS }}</h1>
+                    <h4>Days Left</h4>
+                </div>
+    
+            </div>
+       	</section>    
+        
+    </section>
+    <!-- 
+    <section>
+        <form name="vm.goal_entry_form" >
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{ 'has-error' : vm.goal_entry_form.goal_entry_content.$invalid && vm.goal_entry_form.goal_entry_content.$touched }">
+                    <label>Add your learning</label>
+                    <textarea rows="5" id="comment" name="goal_entry_content" class="form-control" ng-model="vm.goal_entry.content" placeholder="Enter Description"
+                        required>
+                    </textarea>
+                    <p ng-show="vm.goal_entry_form.goal_entry_content.$touched && vm.goal_entry_form.goal_entry_content.$error.required"
+                        class="help-block">This field is required.</p>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-success" ng-click="vm.addGoalEntry()">Add</button>
+            </div>
+        </form>
+    </section>
+    -->
+    <section>
+    	<section class="page_inner">
+        	<div class="page_heading">
+            	<h4>Previous Goals History</h4>
+            </div>
+            <div ng-repeat="goal in vm.goalsList" id="goalList">
+            	<div class="col-md-4">{{ goal.SKILLS }}</div>
+                <div class="col-md-4">{{ goal.DAYS }} days</div>
+                <div class="col-md-4">{{ goal.UPDATED_DATE | date }}</div>
+            </div>
+        </section>            
+    </section>
+</section>

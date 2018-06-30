@@ -1,0 +1,527 @@
+<section class="inner-pg-dash-view" data-repsonce="{{ vm.i.response }}" ng-if="vm.i.response == 0">
+
+<section class="inner-pg-dash-view" ng-if="vm.i.response == 0" ng-cloak>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="form-block-left heading-panel">
+                            <span class="prof-img-frame img-circle user-img-upld-pro">
+                                <!--i class="fa fa-user" aria-hidden="true"></i-->
+                                <img alt="{{ vm.basicDetails.fullanme }}" src="images/photo.png">
+                            </span>
+                            <h3>{ vm.i.basic.fullname }}</h3>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-wrap top">
+
+        <section id="one" class="collout bg_white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Personal</b> Bio</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1 aboutus-block">
+                        <p ng-bind-html="vm.i.basic.about_me"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Programming Experience & Self Rating -->
+        <section id="two" class="collout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Programming</b> Experience &amp; Self Rating</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="bg-color topborder">Technology</th>
+                                    <th class="bg-color topborder">Exp. in Years</th>
+                                    <th class="bg-color topborder">Self Rating out of 10</th>
+                                    <th class="bg-color topborder">Expert Rating out of 10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="skill in vm.i.skills track by $index">
+                                    <td>{{ skill.element }}</td>
+                                    <td>
+                                        <span>{{ skill.exp_years }}</span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <i class="" aria-hidden="true"></i>&nbsp; {{ skill.self_rating }}</span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <i class="" aria-hidden="true"></i>&nbsp; {{ skill.expert_raters_count }}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- skills graph -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <div id="skillContainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Programming Experience & Self Rating -->
+
+
+
+        <!-- Strong Areas Pie Chart -->
+        <section id="strong_area_section" class="collout bg_white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Strong</b> Areas</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <div id="strongAreasContainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Strong Areas Pie Chart -->
+
+
+        <!-- Strong  Areas  -->
+        <section id="twitter-feed" class="grey-bg" ng-if="isNotEmpty(vm.i.candidateStrongAreas)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" style="width: 100%">
+                        <div class="section-heading text-center">
+                            <h2 class="title">Strong Areas</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="twitter-feed" class="" ng-if="isNotEmpty(vm.i.candidateStrongAreas)">
+            <div class="container">
+                <div class="row">
+                    <div class="enquiry-box padding-2x">
+                        <hc-pie-chart title="" data="candidatePieStrongArea">
+                            Placeholder for pie chart
+                        </hc-pie-chart>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programming Activities -->
+        <section id="three" class="collout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Programming</b> Activities</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <table class="table table-bordered table-striped activites">
+                            <thead>
+                                <tr>
+                                    <th class="bg-color topborder">Activity</th>
+                                    <th class="bg-color topborder">Link</th>
+                                    <!-- 
+                                    <th class="bg-color topborder">Rating</th>
+                                    -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-stack-overflow" aria-hidden="true"></i> Stackoverflow</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="{{ vm.i.programming_activities.stackoverflow_link || '-'}}" target="_blank">{{ vm.i.programming_activities.stackoverflow_link || '-'}}</a>
+                                        </span>
+                                    </td>
+                                    <!-- 
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                    -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>LinkedIn</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="{{ vm.i.programming_activities.linkedin_link || '-'}}" target="_blank">{{ vm.i.programming_activities.linkedin_link || '-'}}</a>
+                                        </span>
+                                    </td>
+                                    <!-- 
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                    -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-github" aria-hidden="true"></i> Github</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="{{ vm.i.programming_activities.github_link || '-'}}" target="_blank">{{ vm.i.programming_activities.github_link || '-'}}</a>
+                                        </span>
+                                    </td>
+                                    <!-- 
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                    -->
+                                </tr>
+                                <!-- 
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-bitbucket" aria-hidden="true"></i> Bitbucket</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="" target="_blank">{{ vm.programming_activities.bitbucket_link || '-'}}</a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-chrome" aria-hidden="true"></i> Personal Website</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="" target="_blank">{{ vm.programming_activities.personal_website_link || '-'}}</a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <i class="fa fa-smile-o" aria-hidden="true"></i> Others</td>
+                                    <td>
+                                        <span>
+                                            <a class="ext_link ng-binding" href="" target="_blank">{{ vm.programming_activities.others_link || '-'}} </a>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span>(Not yet rated)</span>
+                                    </td>
+                                </tr>
+                                 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Programming Activities -->
+
+        <!-- Top problems solved in career -->
+        <section id="four" class="collout bg_white" ng-if="vm.i.ps_entries.length > 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Top Problems</b> Solved In Career</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-sm-6" ng-repeat="ps in vm.i.ps_entries">
+                                <blockquote class="quote-card grey">
+                                    <p>{{ ps.ps }} </p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Top problems solved in career -->
+
+        <!-- Projects -->
+        <section id="four" class="collout" ng-if="vm.i.projects.length > 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Projects</b>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-sm-6" ng-repeat="item in vm.i.projects">
+                                <blockquote class="quote-card grey">
+                                    <h3>
+                                        {{item.title}}
+                                    </h3>
+
+                                    <div class="bottom-date" style="text-align:left">
+                                        <a target="_blank" ng-href="project/{{item.gpid}}">
+                                            View project and comments
+                                        </a>										
+                                    </div>
+                                    <div class="bottom-date" style="text-align:right; font-size: 12px;" >
+                                        {{item.synced_date | date:'MMM dd yyyy'}}
+                                    </div>
+                                    <div class="bottom-date" style="text-align:left; font-size: 12px;">
+                                       commits : {{item.commits}}
+                                    </div>                       
+                                    <a target="_blank" ng-href="{{item.link}}" style="font-size: 12px;">
+                                    	view on github
+                                    </a>             
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Projects -->
+
+
+        <!-- Learning Analytics -->
+        <!-- 
+        <section id="la_box" class="collout bg_white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Learning Analytics</b></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="container">
+								<div class="col-md-5">
+									<div id="">
+										<canvas id="myChart"></canvas>
+									</div>
+								</div>
+								<div class="col-md-5">
+									<div id="psaSpline"></div>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         -->
+        <!--/ Learning Analytics -->
+
+        <!-- Components learned -->
+        <section id="five" class="collout bg_white" ng-if="vm.learned.length > 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Components</b> / Things Learned</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <blockquote class="quote-card">
+                                    <p ng-repeat="learned in vm.learned">{{ learned.learned }}</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Components learned -->
+
+        <!-- Employment -->
+        <section id="five" class="collout bg_white" ng-if="vm.i.employment.length > 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Employment</b>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-sm-12" ng-repeat="data in vm.i.employment">
+                                <blockquote class="quote-card">
+
+                                    <h4>{{data.title}}</h4>
+                                    <h4>{{data.company_name}}</h4>
+                                    <div class="row date-row" style="margin-left: 2px;">
+                                        <h6 class="from">
+                                            {{data.start_month | convertMonth }} {{data.start_year}} - {{data.working_still == 1 ? 'Present' : (data.end_month | convertMonth)
+                                            + ' '+ data.end_year }}
+                                        </h6>
+                                    </div>
+
+                                    <div ng-bind-html="data.content | strReplace:'\n':'<br>'">
+                                    </div>
+
+
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Employment -->
+
+        <!-- Behavioral and Technical Test -->
+        <section id="five" class="collout" ng-if="vm.i.interview_answers.length > 0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h2>
+                                <b>Behavioral</b> Questions And Answers
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <blockquote class="quote-card" ng-repeat="data in vm.i.interview_answers">
+                                    <h3>
+                                        {{data.question}}
+                                    </h3>
+                                    <br>
+                                    <p style="font-size:17px; " ng-bind-html="data.answer | strReplace:'\n':'<br>'">
+                                    </p>
+
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--/ Behavioral and Technical Test -->
+
+        <!-- Expert comments -->
+        <section id="six" class="collout">
+            <div class="container">
+                <div class="row" ng-if="vm.auth.isUserLoggedIn()">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="header">
+                            <h4>
+                                <b>Comments</b>
+                            </h4>
+                            <p>Share your view about the profile</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-offset-1">
+                        <form name="vm.expertCommentsForm" id="expertCommentsForm" novalidate>
+                            <div class="form-group" ng-class="{ 'has-error' : vm.expertCommentsForm.comment.$invalid && !vm.expertCommentsForm.comment.$pristine && vm.expertCommentsForm.$submitted }">
+                                <textarea cols="100" row="10" ng-model="vm.commentInfo.comments" name="comment" class="form-control" placeholder="Enter your comments"
+                                    id="comment" required></textarea>
+                                <p ng-if="!vm.expertCommentsForm.comment.$pristine && vm.expertCommentsForm.$submitted" ng-messages="vm.expertCommentsForm.comment.$error">
+                                    <span class="help-block" ng-message="required">Comment is required.</span>
+                                </p>
+                            </div>
+                            <div class="tact_btn_container">
+                                <button type="submit" class="btn btn-primary btn-block" ng-click="vm.submitComment(vm.expertCommentsForm.$valid)">Submit comment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" ng-if="!vm.auth.isExpert()">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h4>Are you expert and want to add more comments?</h4>
+                        <div class="tact_btn_container">
+                            <button type="submit" ng-click="vm.moveTologin()" class="btn btn-primary btn-block">
+                                Sign in to the account
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>
+
+<section class="inner-pg-dash-view" data-response="{{ vm.i.response }}" ng-if="vm.i.response == 1011" ng-cloak>
+    <div class="container top-container">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default questionPanel">
+                <div class="panel-body">
+                    <div class="col-md-9 col-md-offset-1 aboutus-block">
+                        <h2 class="text-center"> Profile Not Avaialble </h2> 
+                    </div>
+                    <br>
+                    <div class="col-md-9 col-md-offset-1 aboutus-block">
+                        <p class="text-center"><b>Sorry..!</b> Profile  You Requested is not avaialble on our server</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+
+<!-- // not sure about this content
+<section class="inner-pg-dash-view" data-response="{{ vm.i.response }}" ng-if="vm.i.response == 1011">
+        <div class="container top-container">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default questionPanel">
+                        <div class="panel-body">
+                            <div class="col-md-9 col-md-offset-1 aboutus-block">
+                                <h2 class="text-center"> Profile Not Avaialble </h2> 
+                            </div>
+                            <br>
+                            <div class="col-md-9 col-md-offset-1 aboutus-block">
+                                <p class="text-center"><b>Sorry..!</b> Profile  You Requested is not avaialble on our server</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>            
+</section>
+ -->
+
+<div class="clearfix"></div>

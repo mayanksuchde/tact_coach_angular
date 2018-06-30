@@ -1,0 +1,26 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>Static page</h3>
+            
+    </div>
+    <form name="vm.activityForm" ng-submit="vm.updateBasicDetailInfo(vm.activityForm.$valid)" novalidate>
+        <section class="page_content">
+            <div class="row">
+                <section>
+                    <h3>Dummy page 2</h3>
+                    <br>
+
+                    <!-- ngIf: vm.predictions.general && vm.predictions.general.length == 0 -->
+                    
+                    <p>This page is used for dummy information</p>
+                    <!-- end ngIf: vm.predictions.general && vm.predictions.general.length == 0 -->
+                    <!-- ngRepeat: prediction in vm.predictions.general -->
+                </section>
+            </div>
+        </section>
+        <div class="page_footer">
+            <a type="submit" ng-click="vm.updateBasicdetailInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Save</a>
+            
+        </div>
+    </form>
+</section>

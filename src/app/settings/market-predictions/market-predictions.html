@@ -1,0 +1,26 @@
+<section class="page_inner">
+        <div class="page_heading">
+            <h3>Market Predictions</h3>
+                
+        </div>
+        <form name="vm.activityForm" ng-submit="vm.updateBasicDetailInfo(vm.activityForm.$valid)" novalidate>
+            <section class="page_content">
+                <div class="row">
+                    <section>
+                    	<h3>General Market Predictions / Tips</h3>
+                        <br>
+
+                        <!-- ngIf: vm.predictions.general && vm.predictions.general.length == 0 -->
+                        
+                        <p>No Market Tips/Predictions available for today. We are constantly analyzing market trends. Check back us tomorrow, we might have more updates for you</p>
+                        <!-- end ngIf: vm.predictions.general && vm.predictions.general.length == 0 -->
+                        <!-- ngRepeat: prediction in vm.predictions.general -->
+                	</section>
+                </div>
+            </section>
+            <div class="page_footer">
+                <a type="submit" ng-click="vm.updateBasicdetailInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Save</a>
+                <a href="" class="btn-white btn pull-right" ui-sref="settings.goals">Next</a>
+            </div>
+        </form>
+    </section>

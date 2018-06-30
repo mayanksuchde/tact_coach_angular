@@ -1,0 +1,145 @@
+<style>
+	.align{
+		text-align: center;
+	}
+	.button {
+    background-color: #4CAF50;
+	margin-right: 50px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    .button1 {
+    background-color:#4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+<section class="inner-pg-dash">
+
+	<div class="container">
+		<div class="row" style="text-align: center">
+			<h1>Learning Analytics</h1>
+		</div>
+		<br><br>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<ul class="queue_list queue_list_recommend">
+				
+				<li class="item item_recommend item_type_recommend col-sm-6">
+					<div class="item_content">
+									
+						<div class="item_content_text are-heading">
+							<div id="container">
+									<div class="col-md-6">
+											<div id="">
+												<canvas id="myChart"></canvas>
+											</div>
+										</div>
+									
+							</div>
+						</div>
+					</div>
+				</li>
+				
+				<li class="item item_recommend item_type_recommend col-sm-6">
+					<div class="item_content">
+							
+						<div class="item_content_text are-heading">
+							<div id="psaSpline"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="row">			
+			<ul class="queue_list queue_list_recommend">			
+				<li class="item item_recommend item_type_recommend col-sm-6">
+					<div class="item_content">
+						<div class="item_content_text are-heading">
+							<h3>Summary:</h3>
+							<p>Total points earned last week:
+								{{vm.total_learning_points}}</p>
+							<p>Your Best learing Day: {{vm.best_entries_day}}</p>
+							<p>You have learned {{vm.average_unique_meter}} % unique
+								topics comparing your peers</p>
+						</div>
+					</div>
+				</li>
+				<li class="item item_recommend item_type_recommend col-sm-6">
+					<div class="item_content">
+						<div class="item_content_text are-heading">
+							<h3>Learning Partner:</h3>
+							<p>Our Algorithm needs more data to find a learning partner
+								for you. Keep using our Learning Analytics (LA) plugin and keep
+								up your learning!</p>
+							<p>Once you are qualified, we will connect you with a perfect
+								learning partner!</p>
+						</div>
+					</div>
+				</li>
+				<li class="item item_recommend item_type_recommend col-sm-4" ng-repeat="item in vm.candidates">
+					<div class="item_content">
+						<div class="img_thum">
+							<a href="#"><img src="https://s3.amazonaws.com/tode/lart/{{$index+1}}.jpg" alt="" title="" /></a>
+						</div>
+						<div class="item_content_text">
+							<div class="title_head">
+								<a href="{{item.url}}" target="_blank">
+									{{item.title}}
+								</a>
+							</div>
+							<p class="domain">{{item.website}}</p>
+							<nav class="item_content_actions recommend_footer">
+								<ul class="item_content_actionscontainer">
+									<li class="item_content_savecontainer"><span
+										class="item_content_save"> <span
+											class="item_content_savetext">
+											{{item.primary_tag}}
+											</span>
+									</span></li>
+									<li class="item_content_hidecontainer">
+										<span class="item_content_overflow">
+											<div id="talkbubble">
+												Unique:<span class="count">{{item.unique_meter}}</span>%
+											</div>
+									</span></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</li>
+				<form name="vm.activityForm" ng-submit="vm.getPaging(vm.activityForm.$valid)" novalidate></form>
+				<div class="col-md-12" >
+                        <div >
+                            <button align = "left" type="submit" class="button1" ng-click="vm.getPaging(vm.activityForm.$valid)">Previous</button>
+						
+							<button align = "right" type="submit" class="button" ng-click="vm.getPaging(vm.activityForm.$valid)">Next</button>   
+						</div>
+				</div>
+				
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- 
+	Ref: boxes.html
+	http://codexstuff.com/Talentaccurate/boxes.html
+ -->

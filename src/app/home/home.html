@@ -1,0 +1,224 @@
+<section class="banner">
+    <div class="baner-left">
+        <h2>Demo is the new Resume</h2>
+        <p>Employers stopped trusting resumes; so did we! Come and get your dream job without Resume</p>
+    </div>
+    <div class="baner-right">
+        <img src="../images/banner.jpg" alt="Talent Accurate" title="Talent Accurate" class="" /> </div>
+</section>
+<section class="modal-howitwork animated fadeIn">
+    <div class="heading text-center">
+        <h2>How it Works</h2>
+        <div class="container howit">
+            <div class="row block-sp">
+                <span class="number_icon">01</span>
+                <div class="col-md-6 one_img">
+                    <img src="../images/howitowrk_icon1.png" alt="Sign Up" title="Sign Up" /> </div>
+                <div class="col-md-6">
+                    <div class="block one text-left">
+                        <h3>Sign Up</h3>
+                        <p>just sign up and add some awesome things about you. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row block-sp">
+                <span class="number_icon">02</span>
+                <div class="col-md-6 col-md-push-6 two_img">
+                    <img src="../images/howitowrk_icon2.png" alt="Pick an Assignment" title="Pick an Assignment" /> </div>
+                <div class="col-md-6 col-md-pull-6">
+                    <div class="block two text-right">
+                        <h3>Pick an Assignment</h3>
+                        <p>Just pick an assignment and start working. We have 2 hours to 40 hours assignment yes, you
+                            can google the answers (just like in the office)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row block-sp">
+                <span class="number_icon">03</span>
+                <div class="col-md-6 three_img">
+                    <img src="../images/howitowrk_icon3.png" alt="Show 'em a Demo" title="Show 'em a Demo" /> </div>
+                <div class="col-md-6">
+                    <div class="block one text-left">
+                        <h3>Show 'em a Demo</h3>
+                        <ul>
+                            <li>
+                                Share these to your potential employer in the interview</li>
+                            <li>
+                                Show the problems you solved</li>
+                            <li>
+                                Show how you solved them</li>
+                            <li>
+                                Show the resources you accessed
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row block-sp">
+                <span class="number_icon">04</span>
+                <div class="col-md-6 col-md-push-6 four_img">
+                    <img src="../images/howitowrk_icon4.png" alt="Time for Offer or Learning" title="Time for Offer or Learning" />
+                </div>
+                <div class="col-md-6 col-md-pull-6">
+                    <div class="block two text-right">
+                        <h3>Time for Offer or Learning</h3>
+                        <p>
+                        	if the employer likes the demo, talk about offer letter
+                        </p>
+                        <p>
+                        	<b>or</b>, our mentors will share your mistakes and show you the path to success
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="modal-newsletter">
+	<form name="vm.homeForm" ng-submit="subscribeNewsletter(vm.homeForm.$valid)" novalidate>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="modal-body" >
+                    <h2>
+                    	Don't Miss Any News
+                    	<br>Subscribe to Our Newsletter.
+                    </h2>
+                    <div class="input-group" id="email_box">
+                        
+                        <input type="email" 
+                                    ng-model="vm.user.email" 
+                                    name="email"
+                                    class="form-control" 
+                                    placeholder="Enter your email" 
+                                    id="email"
+                                    ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                    required
+                                    >                        
+                        <span class="input-group-btn">
+                            	<button type="submit" 
+                                class="btn btn-primary btn-block" 
+                                ng-click="vm.subscribeNewsletter(vm.homeForm.$valid)">Subscribe</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>
+
+<section class="modal-testimonial ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="testi-left">
+                    <h5>PERSONALIZED MATCHING</h5>
+                    <h3>Where one-of-a-kind meets The One.</h3>
+                    <p>We curate our network with a diverse set of opportunities across a variety of companies, matching you
+                        with only those that best meet your unique skills, interests, preferences, and priorities.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="testi-right">
+                    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                        <!-- Bottom Carousel Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#quote-carousel" data-slide-to="1"></li>
+                            <li data-target="#quote-carousel" data-slide-to="2"></li>
+                            <li data-target="#quote-carousel" data-slide-to="3"></li>
+                        </ol>
+                        <!-- Carousel Slides / Quotes -->
+                        <div class="carousel-inner">
+                            <!-- Quote 1 -->
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <p>
+											I would pick the candidates who focuses on real time complex problems than who works on algorithms. Algorithms can be copied/trained but real time complex problems can't be.										                                            
+                                            
+                                        </p>
+                                        <small>
+                                            <strong>Darshan</strong>
+                                            <br>CEO, Apiria</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Quote 2 -->
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <p>
+                                        Interview feedback for Candidates is really a great Idea. It helped me a lot when I was looking for a career upgrade. 
+TalentAccurate is highly recommended for job searching candidates.
+                                        </p>
+                                        <small>
+                                            <strong>Smita Patil</strong>
+                                            <br>Senior Developer, Bengaluru</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quote 3 -->
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <p>
+                                        	Real world problems are not reflected in existing Coding sites. That's where TaletnAccurate comes in.
+                                        </p>
+                                        <small>
+                                            <strong>Inbarasan</strong>
+                                            <br>Amazon</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quote 3 -->
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <p>
+                                        	Don't prepare for Interviews.
+                                        	<br>
+											Focus on real-time problems and pick one to solve.
+											<br>
+											Your potential employers will find you after that!											
+                                        </p>
+                                        <small>
+                                            <strong>Murali, Architect</strong>
+                                            <br>via LinkedIn</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+<section class="partner-section">
+    <div class="container">
+        <div class="row">
+        	<div class="col-sm-12">
+        		<div class="heading text-center">
+            		<h2>Our Partners</h2>
+            	</div>
+            	<div class="owl-carousel owl-theme">
+    				<div class="item"><img src="images/PregBuddy.jpg" alt="PregBuddy" title="PregBuddy" /></div>
+    				<div class="item"><img src="images/vue.jpg" alt="vue" title="vue" /></div>
+    				<div class="item"><img src="images/cerdit.jpg" alt="cerdit" title="cerdit" /></div>
+    				<div class="item"><img src="images/apira.jpg" alt="apira" title="apira" /></div>                
+				</div>
+            </div>
+        </div>
+   	</div>
+</section>
+ -->

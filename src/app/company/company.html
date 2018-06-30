@@ -1,0 +1,202 @@
+<section class="top_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="profile_img">
+                    <img src={{vm.companyInfo.image_url}} width="140" alt="" title="">
+                </div>
+                <div class="profile_caption">
+                    <h3>{{vm.companyInfo.name}}</h3>
+                    <p>Financial Services, Healthcare, Software Development</p>
+                    <ul>
+                        <li>Founded {{vm.companyInfo.founded}}</li>
+                        <li>{{vm.companyInfo.employee_range}} people</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="company_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Overview {{vm.companyInfo.name}}</h2>
+                <hr>
+                <div class="col-md-10 col-md-offset-1 para">
+                    <p>{{vm.companyInfo.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="company_block grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Tech Stack</h2>
+                <hr>
+                <div class="col-md-10 col-md-offset-1 para">
+                    <div class="page_tags">
+                        <a href="#" ng-repeat="key in vm.companyInfo.tech_stack_keys track by $index" class="post-tag job-link no-tag-menu">
+                            {{key}}
+                        </a>
+                    </div>
+                    <div>
+                        <p>{{vm.companyInfo.tech_stack_summary}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="company_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Benefits</h2>
+                <hr>
+                <div class="col-sm-12">
+                    <div class="benefits-list-row">
+                        <div class="benefit" ng-repeat="benefit in vm.companyInfo.benefits" title="We’re Agile">
+                            <p class="_medium">
+                                <svg aria-hidden="true" class="svg-icon iconStar" width="18" height="18" viewBox="0 0 18 18">
+                                    <path d="M9 12.65l-5.29 3.63 1.82-6.15L.44 6.22l6.42-.17L9 0l2.14 6.05 6.42.17-5.1 3.9 1.83 6.16z"></path>
+                                </svg>
+                                {{benefit}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="company_block grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Other Company Info </h2>
+                <hr>
+                <div class="col-md-10 col-md-offset-1 para">
+                    <div class="col-sm-6 pro_list">
+                        <h4>
+                            <span>Pro Summary</span>
+                        </h4>
+                        <ul>
+                            <li ng-repeat="pros in vm.companyInfo.pros_summary track by $index">
+                                {{pros}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 pro_list">
+                        <h4>
+                            <span>Cons Summary</span>
+                        </h4>
+                        <ul>
+                            <li ng-repeat="cons in vm.companyInfo.cons_summary track by $index">
+                                {{cons}}
+                            </li>
+                        </ul>
+                    </div>
+                    <ol class="company_info_list">
+                        <li>
+                            <h4>
+                                <span>Developer Salaries</span>
+                                <em>{{ vm.companyInfo.company_local_info.salary_range }}
+                                   {{ vm.companyInfo.company_local_info.salary_currency}}
+                                </em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Offical Working Hours</span>
+                                <em>{{vm.companyInfo.company_local_info.official_working_hours}}</em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Offical Working Hours</span>
+                                <em>{{vm.companyInfo.company_local_info.unofficial_working_hours}}</em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Learing Meter</span>
+                                <em>{{vm.companyInfo.company_local_info.learning_meter}}</em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Promotion Meter</span>
+                                <em>{{vm.companyInfo.company_local_info.promotion_meter}}</em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Developer Satisfaction Meter</span>
+                                <em>{{vm.companyInfo.company_local_info.developer_satisfaction_meter}}</em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Social Platform Access</span>
+                                <em>Gmail
+                                    <span class="no">
+                                        {{vm.companyInfo.company_local_info.gmail_access}}
+                                    </span>
+                                </em>
+                                <em>Facebook
+                                    <span class="yes">
+                                        {{vm.companyInfo.company_local_info.facebook_access}}
+                                    </span>
+                                </em>
+                            </h4>
+                        </li>
+                        <li>
+                            <h4>
+                                <span>Phone Access</span>
+                                <em> Smart Phone
+                                    <span class="no">
+                                        {{vm.companyInfo.company_local_info.smart_phone_access}}
+                                    </span>
+                                </em>
+                                <em>Normal Phone
+                                    <span class="yes">
+                                        {{vm.companyInfo.company_local_info.normal_phone_access}}
+                                    </span>
+                                </em>
+                            </h4>
+                        </li>
+                    </ol>
+                    <div class="alert alert-warning alert-me" role="alert">
+                        {{vm.companyInfo.interview_probability}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="company_block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Personal Predictions</h2>
+                <hr>
+                <div class="col-md-10 col-md-offset-1 para">
+                    <div class="per_box">
+                        <span class="yes">Available</span>
+                        <h4>Your Probability of gettting through the interveiw</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque maximus mauris nunc, vitae egestas
+                            ante placerat pretium. Integer vitae dolor felis.</p>
+                    </div>
+                    <div class="per_box">
+                        <span class="no">Not Available</span>
+                        <h4>Your Probability of gettting promotions in 3years</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque maximus mauris nunc, vitae egestas
+                            ante placerat pretium. Integer vitae dolor felis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,129 @@
+<style>
+	table tr td.crbase1{
+		padding: 5px;
+		padding:10px 10px;
+		border: 1px solid #e7ebee;
+	}	
+</style>
+
+<section class="page_inner">
+    	<div class="page_heading">
+            <h3>Credits Details</h3>
+        </div>
+        
+        <section class="page_content">            
+        	<div class="credits_content settings_content">
+	            <h3>
+	                Your Credits: <span>{{vm.creditObj.credits}}</span>
+	            </h3>
+                     
+                <p>
+                    Credits can be used to get tips/insider information from
+                    experienced candidates/experts/manager in IT industry in your
+                    region.
+                </p>
+                <p>
+                    <!--TO DO: Add href to terms and condition of the credits-->
+                    check more <a ui-sref="settings.credits-info" style="color:#047958">how to use my credits</a>
+                </p>
+                    
+                <div>
+                    <h4>Refer your friends to get more credits</h4>
+                    <br>
+                </div>
+                
+				<form name="vm.emailAddForm">
+				    <div class="row">
+				        <div class="form-group col-md-8 col-sm-8 col-xs-8" ng-class="{'has-error' : vm.emailValidation.duplicateEmail|| vm.emailAddForm.referralEmail.$error.email}">
+				            <input type="email"
+				                   name="referralEmail" 
+				                   id="referralEmail" 
+				                   class="form-control" 
+				                   ng-model="vm.referralEmail"  
+				                   placeholder="Enter email address" required>
+				               <span ng-if="vm.emailValidation.duplicateEmail" class="help-block">The email is already exist.</span>
+				               <span ng-if="vm.emailAddForm.referralEmail.$error.email" class="help-block">Enter a valid email</span>
+				        </div>          
+				        <!-- will be fixed in future releases 
+				        <div class="col-md-4 col-sm-4 col-xs-4">
+				            <button type="submit" class="btn btn-primary" ng-click="vm.addReferralEmail(vm.referralEmail)">
+				                <span class="desktop_button">Add email</span><span class="mobile_button">+</span>
+				               </button>
+				        </div>
+				        -->
+				    </div>
+				</form>
+				
+                <form name="vm.referralEmailForm" id="referralEmailForm" ng-submit="vm.sendInvites(vm.referralEmailForm.$valid)" novalidate>
+                    <div class="row">
+                        <div ng-repeat="referral in vm.referralEmails track by $index">
+                            <div class="form-group col-md-8 col-sm-8 col-xs-8" 
+                                    ng-class="{ 'has-error' : referralEmailForm[referralEmail{{$index}}].$invalid && !referralEmailForm[referralEmail{{$index}}].$untouched }">
+                                <input type="Email"
+                                    name="emails" 
+                                    id="referralEmail{{$index}}" 
+                                    class="form-control" 
+                                    ng-model="referral"  
+                                    placeholder="Enter email address" required>
+                                <p ng-show="referralEmailForm[referralEmail{{$index}}].$touched &&referralEmailForm[referralEmail{{$index}}].$error.required" class="help-block">City is required.</p>
+                            </div>
+                            <!--
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <button type="button" class="btn btn-danger" ng-click="vm.deleteReferralEmail($index)">X</button>
+                            </div>
+                        -->
+                        </div>
+                    </div>
+                    <div>
+                            <input class="btn-primary btn btn-md" name="submit" type="submit" id="" tabindex="5" value="Send invites">
+                        <!-- <button type="submit" class="btn btn-primary" ng-click="vm.sendInvites(vm.referralEmailForm)">Send invites</button> -->
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        
+    <section class="page_content">
+    <h3>
+        Referrals and Credits
+    </h3>
+       <br>
+      <table border=1 class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <td class="crbase1 topborder" >
+                Email
+            </td>
+            <td class="crbase1 topborder" >
+                Invitation Sent Date
+            </td>
+            <td class="crbase1 topborder" >
+                Signed up Date
+            </td>
+            <td class="crbase1 topborder" >
+                Credits Earned
+            </td>
+        </tr>  
+        </thead>   		
+        <tbody>
+        <tr ng-repeat="history in vm.creditObj.ref_history">
+            <td class="crbase1" >
+                {{history.EMAIL}}
+            </td>
+            <td class="crbase1" >
+                {{history.CREATED_DATE || "-" | date:'dd/MM/yyyy'}}
+            </td>
+            <td class="crbase1" >
+                {{history.SIGNED_UP_DATE || "-" | date:'dd/MM/yyyy'}}
+            </td>
+            <td class="crbase1" >
+                {{history.REF_CREDITS}}
+            </td>
+        </tr>  	
+        </tbody>
+        <tr ng-if="!vm.creditObj.ref_history || vm.creditObj.ref_history.length == 0">
+            <td class="crbase1 text-center" colspan="4">	Your referral history is not available</td>
+        </tr>
+    </table>
+   </section>
+</section>

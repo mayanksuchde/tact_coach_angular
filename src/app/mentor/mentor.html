@@ -1,0 +1,43 @@
+<style>
+	.page_inner p{
+		padding: 15px;
+	}
+</style>
+
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="page_inner">
+                            <div class="page_heading">
+                                <a ui-sref="mentors" class="btn btn-default pull-right">Back</a>
+                                <h3 tact-mentor-id="{{vm.mentorInfo.chid}}">{{ vm.mentorInfo.rockstar_id }}</h3>
+                                <div class="post-meta">
+                                    <div class="post-meta-info">
+                                        <label>Tags:
+                                        	<div ng-repeat="val in vm.mentorInfo.tags">
+                                        		<span class="hard">{{ val }}</span>	
+                                        	</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="chall-details">
+                                        <div class="content-area" ng-bind-html="vm.mentorInfo.content">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                           
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

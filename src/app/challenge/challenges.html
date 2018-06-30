@@ -1,0 +1,78 @@
+	
+	<section class="top_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="info-banner__main-content text-center">
+                        <h1 class="info-banner__title">Welcome to <b>Talentaccurate</b> Competitions</h1>
+                        <h2 class="info-banner__subtitle">Challenge yourself with real-world programming problems</h2>
+                        <hr class="info-banner__divider">
+                        <ul class="info-banner__details">
+                            <li class="info-banner__detail col-sm-4"><img alt="New to Data Science?" class="info-banner__detail-image" src="./../images/analytics1.png">
+                                <h3 class="info-banner__detail-title">
+                                	Beginner in IT?
+                                </h3>
+                                <p class="info-banner__detail-text">
+                                	There are lot of simple projects you can start with
+                                </p>
+                            </li>
+                            <li class="info-banner__detail col-sm-4"><img alt="Build a Model" class="info-banner__detail-image" src="./../images/analytics.png">
+                                <h3 class="info-banner__detail-title">
+                                	Start working on
+                                </h3>
+                                <p class="info-banner__detail-text">
+                                	You can work on the projects alone or with your friends/colleagues
+                                </p>
+                            </li>
+                            <li class="info-banner__detail col-sm-4"><img alt="Make a Submission" class="info-banner__detail-image" src="./../images/analytics2.png">
+                                <h3 class="info-banner__detail-title">
+                                	Submit your project
+                                </h3>
+                                <p class="info-banner__detail-text">
+                                	Submit your project and get evaluated by Peers and Expets
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="inner-pg-dash">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="page_inner">
+                                <div class="page_heading">
+                                    <h3>Open Challenges</h3> </div>
+                                <section class="page_content challenges">
+                                    <!-- Challenges Post -->
+                                    <div class="post-row" ng-repeat="challenge in vm.challenges track by $index">
+                                        <a ui-sref="challenge({title: challenge.url})">
+                                            <div class="post-thumb"> <img src="https://webdesignernews.s3.amazonaws.com/post_images/1783469/logo-design-process_facebook-a31d24668870e55ed1a548087a92f138-9f81-140x112.png" class="post-thumb-img" alt=""> </div>
+                                            <div class="post">
+                                                <div class="post-info">
+                                                    <h2>{{ challenge.title}}</h2>
+                                                    <div class="post-meta">
+                                                        <div class="post-meta-info">
+                                                            <label>Started: <span class="">{{ vm.getLocaleDate(challenge.created_date) }}</span></label>
+                                                            <label>Level: <span class="medium">{{ challenge.level_info }}</span></label>
+                                                            <label><b>{{challenge.participants_count}}</b> <span class="">Participants</span></label>
+                                                            <label><b>{{challenge.views_count}}</b> <span class="">Views</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                            <span class="prize">Open Challenge</span>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i> </div>
+                                        </a>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,326 @@
+<style>
+        .w3-card {
+            height: 110px;
+            position: relative;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        }
+        .w3-panel {
+            margin-top: 16px;
+            margin-bottom: 16px;
+            border-radius: 3px;
+            padding-top: 10px;
+        }
+        .user-detail {
+            -webkit-transition:all linear 0.5s;
+            transition:all linear 0.5s;
+        }
+        .user-detail.ng-hide {
+            opacity: 0;
+        }
+        .user-detail.ng-show {
+            opacity: 0;
+        }
+        #loader {
+            z-index: 1;
+            border: 5px solid #f3f3f3;
+            animation: spin 1s linear infinite;
+            border-top: 5px solid #555;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 46%;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            }
+    
+            @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+            }
+    
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+            #seven-backdrop {
+                position: absolute;
+                display: none;
+                top: -16px;
+                bottom: 0px;
+                background: black;
+                border: 1px solid;
+                left: 0;
+                right: 0;
+                opacity: 0.3;
+                margin: 15px;
+                border-radius: 5px;
+            }
+            
+            h2{
+                text-align: center;
+            }
+    
+    </style>
+    
+    <style type="text/css">
+    body{
+        
+        letter-spacing: 0;
+        font-weight: 400;
+        font-style: normal;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -moz-font-feature-settings: "liga" on;
+        color: rgba(0, 0, 0, .84);
+        font-size: 18px;
+        line-height: 1.4;
+    }
+    
+    .graf--p {
+        --x-height-multiplier: 0.375;
+        --baseline-multiplier: 0.17;
+        font-family: medium-content-sans-serif-font, -apple-system,
+     BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+     "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+        
+        letter-spacing: .01rem;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1.58;
+        letter-spacing: -.003em;
+    }
+    
+    p.local_box{
+        margin-top: 20px;
+    }
+    
+    </style>
+    
+    <style>
+    *:focus {
+        outline: none;
+    }
+    
+    body {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        line-height: 30px;
+    }
+    
+    .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: auto;
+        z-index: 10;
+        padding: 10px;
+        background-color: #000;
+        background-color: rgba(0, 0, 0, .8);
+        box-shadow: 0 0 4px #000;
+        box-sizing: border-box;
+        color: #ccc;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    h1 {
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        letter-spacing: -2px;
+        
+        /*border-bottom: 1px solid #dbdbdb;*/
+    }
+    @media only screen and (max-width: 1024px) {
+        h1 {
+            font-size: 36px;
+        }
+    }
+    
+    h2 {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    
+    h3 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+    
+    h4 {
+        font-size: 24px;
+        line-height: 28px;
+    }
+    
+    p {
+        margin-bottom: 40px;
+        
+    }
+    
+    a {
+        color:black;
+    }
+    
+    a:hover {
+        color:green;
+    }
+    
+    pre {
+        font-family: 'Menlo', monospace;
+        font-size: 15px;
+        background-color: #f0f0f0;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #666;
+    }
+    
+    
+    blockquote {
+        display: block;
+        padding-left: 20px;
+        border-left: 6px solid #df0d32;
+        margin-left: -15px;
+        padding-left: 15px;
+        font-style: italic;
+        color: #555;
+    }
+    
+    #container {
+        /* width: 960px; */
+        margin: 30px auto;
+    }
+    
+    #all-demos {
+        text-align: center;
+        border-bottom: 1px solid #dbdbdb;
+        padding-bottom: 40px;
+    }
+    
+    .editable,
+    .secondEditable
+     {
+        outline: none;
+        margin: 0 0 20px 0;
+        padding: 0 0 20px 0;
+        /*border-bottom: 1px solid #dbdbdb;*/
+    }
+    
+    #columns {
+        width: 90%;
+        margin: 30px auto;
+    }
+    
+    .column-container {
+    
+    }
+    
+    .column {
+        vertical-align: top;
+        display: inline-block;
+        width: 30%;
+        margin: 10px 1%;
+    }
+    
+    
+    </style>
+    
+    
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/medium-editor.css">
+    <style>
+    </style>
+    
+    <style>
+        p a{
+            color:#43b4da;
+        }
+        p{
+            overflow: hidden;
+        }
+    </style>
+
+
+<section class="inner-pg-dash">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="page_inner">
+                                <div class="page_heading">
+                                    <h2>My learning strategies</h2>
+                                    <div class="post-meta">
+                                        <div class="post-meta-info">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="article-details">
+                                            <div class="content-area">
+
+                                                    <p>
+                                                            I like in teaching technology to others in the way i made myself easy in understanding 
+                                                    </p>
+                                                    
+                                                    <p>
+                                                            I speak to people who has mutual technology interest of mine and share ideas 
+                                                    </p>
+                                                    
+                                                    <p>
+                                                            I like to check free lancing sites if i need to learn technology. Take the work and try to implement 
+                                                    </p>
+                                                    
+                                                    <p>
+                                                            Whatever real time problem we face i practically think to bring it as an application or some technological solution and discuss on the same.
+                                                    </p>
+                                                    
+                                                    <p>
+                                                            Like to upgrade latest technology based on the current market
+                                                    </p>
+                                                    
+    
+                                                            <hr>
+			
+			<h3>By :</h3>
+			<br>
+			<p ng-bind-html="result.created_by | nl2br">
+				By	
+			</p>
+			<hr>			
+			
+			<p>
+				<a href="#/strategies" style="font-weight: 200;" target="_blank">
+					View other learning strategies
+				</a>
+			</p>		
+				   
+            
+			
+			
+    
+    
+    
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    

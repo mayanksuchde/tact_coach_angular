@@ -1,0 +1,79 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>Career & Coding Activities</h3>
+    </div>
+    <form name="vm.activityForm" ng-submit="vm.updateCodingActivitiesInfo(vm.activityForm.$valid)" novalidate>
+        <section class="page_content">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> LinkedIn* </label>
+                        <input type="text" 
+                            class="form-control boxes text-input input--full" 
+                            id="linkedin-link" 
+                            name="linkedin-link" 
+                            placeholder="Paste your LinkedIn profile (if available)"
+                            ng-model="vm.codingActivitiesInfo.linkedin">
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Indeed Link* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="indeed-link" name="indeed-link"  placeholder="Paste your Indeed profile (if available)"
+                            ng-model="vm.codingActivitiesInfo.indeed">
+                    </div>
+               </div>
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Github* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="github-link" name="github-link"  placeholder="Paste your github link (if available)"
+                            ng-model="vm.codingActivitiesInfo.github" style="">
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                        <div class="form-group ">
+                            <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Gitlab* </label>
+                            <input type="text" class="form-control boxes text-input input--full" id="gitlab-link" name="gitlab-link"  placeholder="Paste your gitlab link (if available)"
+                                ng-model="vm.codingActivitiesInfo.github" style="">
+                        </div>
+                    </div>
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Stack Overflow* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="stack_overflow-link" name="stack_overflow-link"
+                         placeholder="Paste your stackoverflow link (if available)" ng-model="vm.codingActivitiesInfo.stackoverflow"
+                            style="">
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Bitbucket* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Bitbucket-link" name="Bitbucket-link" placeholder="Paste your bitbucket link (if available)"
+                            ng-model="vm.codingActivitiesInfo.bitbucket">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Personal Website* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Website-link" name="Website-link"  placeholder="Paste if any other links"
+                            ng-model="vm.codingActivitiesInfo.personal_website">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group ">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Blog* </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="blog-link" name="blog-link"  placeholder="Paste if any other links"
+                            ng-model="vm.codingActivitiesInfo.blog">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <div class="page_footer">
+            <a type="submit" ng-click="vm.updateCodingActivitiesInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Save</a>
+            <a href="" class="btn-white btn pull-right" ui-sref="accounts.problemsolved">Next</a>
+        </div>
+    </form>
+</section>

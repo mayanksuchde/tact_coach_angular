@@ -1,0 +1,87 @@
+<section class="inner-pg-dash" id="feeds_section">
+	<md-virtual-repeat-container id="feeds_infinite_container">
+		<div md-virtual-repeat="feed in vm.dynamicItems" md-on-demand class="repeated-item">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-lg-8 col-lg-offset-2">
+								<article class="feed_box" ng-if="feed && feed.feed_type == 'challenge_action'">
+									<!--{{ feed.feed_type }}-->
+									<div class="feed_head">
+										<div class="feed_right">
+										</div>
+										<div class="feed_left">
+											<div class="avator img">
+												<img src="images/feed1.jpg" alt="" title="" />
+											</div>
+											<h4>
+												<a href="#">
+													{{feed.rockstar_username}}
+												</a>
+												{{feed.challenge_action}}
+											</h4>
+											<span class="meta">
+												{{feed.updated_date_fuzzy}}
+											</span>
+										</div>
+									</div>
+									<div class="feed_cont">
+										<p>
+											<a href="/challenge/{{feed.challenge_link}}" target="_blank">{{feed.challenge_title}}</a>
+										</p>
+									</div>
+									<div class="feed_foot">
+											<span class="pull-left text-left">{{feed.content_title_link}}
+													<a href="/project/{{feed.project_id}}" target="_blank">View Project</a>
+												</span>										
+										<span class="pull-right text-right">{{feed.content_title_link}}
+											<a href="{{feed.project_link}}" target="_blank">View code</a>
+										</span>
+									</div>
+								</article>
+
+								<article class="feed_box" ng-if="feed.feed_type == 'project_comments'">
+									<!--{{ feed.feed_type }}-->
+									<div class="feed_head">
+										<div class="feed_right">
+										</div>
+										<div class="feed_left">
+											<div class="avator img">
+												<img src="images/feed1.jpg" alt="" title="" />
+											</div>
+											<h4>
+												<a href="#">
+													{{feed.reviewer_username}}
+												</a>
+												commented
+												<a href="#">{{feed.project_provider_username}}</a>'s Project
+											</h4>
+											<span class="meta">
+												{{feed.updated_date_fuzzy}}
+											</span>
+										</div>
+									</div>
+									<div class="feed_cont">
+										<p>Comments :</p>
+										<p ng-bind-html="feed.comment | nl2br">{{feed.comment}}</p>
+									</div>
+									<div class="feed_foot">
+											<span class="pull-left text-left">{{feed.content_title_link}}
+													<a href="/project/{{feed.project_id}}" target="_blank">View Project</a>
+												</span>
+										<span class="pull-right text-right">{{feed.content_title_link}}
+											<a href="{{feed.project_link}}" target="_blank">View code</a>
+										</span>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</md-virtual-repeat-container>
+
+</section>

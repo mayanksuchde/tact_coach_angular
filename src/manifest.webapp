@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "name": "Tact",
+  "launch_path": "/index.html",
+  "description": "",
+  "icons": {
+    "128": "/images/icon-128x128.png"
+  },
+  "developer": {
+    "name": "Shobana <letter2shobana@gmail.com>",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Tact",
+      "description": ""
+    }
+  }
+}

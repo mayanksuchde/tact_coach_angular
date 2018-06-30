@@ -1,0 +1,89 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>Address</h3>
+    </div>
+    <form name="vm.activityForm" ng-submit="vm.updateAddressInfo(vm.activityForm.$valid)" novalidate>
+        <section class="page_content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Address Line 1 </label>
+                        <input type="text" 
+                            class="form-control boxes text-input input--full" 
+                            id="Address Line 1" 
+                            name="Address Line 1" 
+                            placeholder="Enter Address line 1"
+                            ng-model="vm.addressInfo.addressline1">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Address Line 2 </label>
+                        <input type="text" 
+                        class="form-control boxes text-input input--full" 
+                        id="Address Line 2" 
+                        name="Address Line 2" 
+                        placeholder="Enter Address line 2"
+                        ng-model="vm.addressInfo.addressline2">
+                    </div>
+                </div>
+                <div class="required form-group col-md-6" ng-class="{ 'has-error' : address_settings_form.city.$invalid &amp;&amp; !address_settings_form.city.$untouched }">
+                    <label>City</label>
+                    <input type="text" 
+                    name="city" 
+                    class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" 
+                    ng-model="vm.addressInfo.city" 
+                    placeholder="Enter City" 
+                    required="" 
+                    aria-invalid="true" 
+                    style="">
+                    <p ng-show="address_settings_form.city.$touched &amp;&amp; address_settings_form.addressLine1.$error.required" class="help-block ng-hide" aria-hidden="true" style="">City is required.</p>
+                </div>
+                
+                <div class="required form-group col-md-6" ng-class="{ 'has-error' : address_settings_form.state.$invalid &amp;&amp; !address_settings_form.state.$untouched }">
+                    <label>State</label>
+                    <input type="text" 
+                    name="state" 
+                    class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" 
+                    ng-model="vm.addressInfo.state" 
+                    placeholder="Enter State" 
+                    required="" 
+                    aria-invalid="true" 
+                    style="">
+                    <p ng-show="address_settings_form.state.$touched &amp;&amp; address_settings_form.state.$error.required" class="help-block ng-hide" aria-hidden="true" style="">State is required.</p>
+                </div>
+    
+                <div class="required form-group col-md-6" ng-class="{ 'has-error' : address_settings_form.country.$invalid &amp;&amp; !address_settings_form.country.$untouched }">
+                    <label>Country</label>
+                    <input type="text"
+                     name="country"
+                     class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" 
+                     ng-model="vm.addressInfo.country" 
+                     placeholder="Enter Country" 
+                     required="" 
+                     aria-invalid="true" 
+                     style="">
+                    <p ng-show="address_settings_form.country.$touched &amp;&amp; address_settings_form.country.$error.required" class="help-block ng-hide" aria-hidden="true" style="">Country is required.</p>
+                </div>
+    
+                <div class="required form-group col-md-6" ng-class="{ 'has-error' : address_settings_form.postalCode.$invalid &amp;&amp; !address_settings_form.postalCode.$untouched }">
+                    <label>Postal Code</label>
+                    <input type="text" name="postalCode"
+                     class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                      ng-model="vm.addressInfo.zip"
+                      placeholder="Enter Postal Code" 
+                      required=""
+                      aria-invalid="true" 
+                      style="">
+                    <p ng-show="address_settings_form.postalCode.$touched &amp;&amp; address_settings_form.postalCode.$error.required" class="help-block ng-hide" aria-hidden="true" style="">Postal Code is required.</p>
+                </div>
+                
+                
+            </div>
+        </section>
+        <div class="page_footer">
+            <a type="submit" ng-click="vm.updateAddressInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Save</a>
+            <a href="" class="btn-white btn pull-right" ui-sref="settings.password">Next</a>
+        </div>
+    </form>
+</section>

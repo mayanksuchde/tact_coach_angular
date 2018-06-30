@@ -1,0 +1,73 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>Basic Details</h3>
+    </div>
+    <form name="vm.activityForm" ng-submit="vm.updateBasicDetailInfo(vm.activityForm.$valid)" novalidate>
+        <section class="page_content">
+            <div class="row">
+            	<div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Username * (You can use it for login purposes) </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="username" name="username" placeholder="Ente username"
+                            ng-model="vm.basicDetailInfo.username" style="">                            
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Full name </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Full-name" name="Full-name" placeholder="Enter your full name"
+                            ng-model="vm.basicDetailInfo.fullname" style="">                            
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_phone"> Phone Number </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Phone" name="Phone" placeholder="Enter your Phone"
+                            ng-model="vm.basicDetailInfo.phone" style="">                            
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Current title </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Current-title" name="Current-title"
+                            placeholder="Enter current title " ng-model="vm.basicDetailInfo.current_title"
+                            style="">
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Expect title </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Expect-title" name="Expect-title" placeholder="Expect expecting title "
+                            ng-model="vm.basicDetailInfo.expecting_title">                            
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Current Salary (Per Year) </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="current-salary" name="current-salary" placeholder="Enter current salary"
+                            ng-model="vm.basicDetailInfo.current_salary">
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Expect Salary (Per Year) </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Expect-salary" name=Expect-salary placeholder="Enter expecting salary "
+                            ng-model="vm.basicDetailInfo.expecting_salary">                          
+                    </div>
+                </div>
+                
+                
+            </div>
+        </section>
+        <div class="page_footer">
+            <a type="submit" ng-click="vm.updateBasicDetailInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Save</a>
+            <a href="" class="btn-white btn pull-right" ui-sref="settings.address">Next</a>
+        </div>
+    </form>
+</section>

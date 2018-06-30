@@ -1,0 +1,64 @@
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="page_inner">
+                            <div class="page_heading">
+                                <h3>Fake company identifier</h3>
+                            </div>
+                            <form name="vm.FCISearchForm"
+                                novalidate>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="article-details">
+                                            <div class="content-area">
+                                                <div class="form-group"
+                                                    ng-class="{ 'has-error' : vm.FCISearchForm[searchKey].$invalid && 
+                                                !vm.FCISearchForm[searchKey].$pristine && vm.FCISearchForm.$submitted }">
+                                                    <input ng-model="question.answer"
+                                                        class="form-control"
+                                                        id="searchKey"
+                                                        name="searchKey"
+                                                        rows="5"
+                                                        type="search"
+                                                        placeholder="Enter company name to search"
+                                                        required /> 
+                                                    <p ng-if="vm.FCISearchForm[searchKey].$invalid && 
+                                                    !vm.FCISearchForm[searchKey].$pristine && vm.FCISearchForm.$submitted"
+                                                        ng-messages="vm.FCISearchForm[searchKey].$error">
+                                                        <span class="help-block"
+                                                            ng-message="required">The field is required</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button type="submit"
+                                        ng-click="vm.searchCompany()"
+                                        href=""
+                                        class="btn-primary btn pull-left">Search</button>
+                                    </div>
+                                </div>
+                                <div class="page_footer">
+                                    <div class="row">
+                                        <div class="col-sm-12"
+                                            ng-repeat="result in vm.searchResults track by $index">
+                                            <div class="article-details">
+                                                <div class="content-area">
+                                                    {{result}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

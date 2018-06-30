@@ -1,0 +1,78 @@
+<!--    <section class="inner-pg-dash">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section class="page_inner">
+                                <div class="page_heading">
+                                    <h3>Weekend Learning Strategies</h3>
+                                    <div class="post-meta">
+                                        <div class="post-meta-info">
+                                            <label>Tags: <span class="tags">Password</span> <span class="tags">Safe Password</span>  <span class="tags">Safe</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="article-details">
+                                            <div class="content-area">
+<h3>Weekend Learning Strategies:</h3>
+<p>Everyone has a different learning strategy. Even though we can't generalize the strategy, we have theorized our learning strategy and tested with few Junior developers with positive results. It might be helpful for you if you are trying to learn a new program.
+</p>
+<h3>Visualize your day:</h3>
+<p>Just 2 days before your learning weekend, just visualize your day(s) like how would you learn, what would be the intervals and how would you use your intervals?</p>
+
+                                                <h3>Chunk your big task into small:</h3>
+<p>Chunk your task into 2-3 hours sub tasks with regular intervals. Call each three hour as phases.</p>
+
+<p>For example, Learn Spring REST in 21 hours. Divide this 21 hours task in to sub tasks and name each phase with one word. You can simply say phase 1, 2.. 7 or you can use any catchy words for each phases.
+</p>
+<h3>Name your small tasks:</h3>
+<p>Based on our study with developers, having a catchy word for each phase will make them motivated to finish the task. You can define your own theory.</p>
+
+<h3>Measure your efforts:</h3>
+<p>After every 2-3 hours, just note down how much % you finished in the current phase goal? I am sure you can't achieve 100% all the time, so don't worry about it. Our tasks about progress, not winning always.
+                                                </p>
+                                                <p>After 2-3 hours, you have to conclude your efforts in one line (less than 10 words) about how you did it?</p>
+                                            <div class="bottom-area">
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body ng-controller="myController">
+    <div id="container">Placeholder for chart</div>
+    <script>
+    	angular.module('myModule', [])
+    		.controller('myController', function ($scope) {
+				Highcharts.chart('container', {
+
+				    xAxis: {
+				        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+				            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+				    },
+
+				    series: [{
+				        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+				    }]
+				});
+    		});
+    </script>
+</body>
+</html

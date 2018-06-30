@@ -1,0 +1,343 @@
+<style>
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("images/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+}
+.heart.is-active {
+  transition-duration: 1s;
+  background-position: -2800px 0;
+}
+
+.stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+</style>
+
+
+<section class="inner-pg-dash-view" data-response="{{ vm.projectInfo }}" ng-if="vm.apiresult == 1011" >
+    <div class="container top-container">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default questionPanel">
+                    <div class="panel-body">
+                        <div class="col-md-9 col-md-offset-1 aboutus-block">
+                            <h2 class="text-center"> Project Not Avaialble </h2> 
+                        </div>
+                        <br>
+                        <div class="col-md-9 col-md-offset-1 aboutus-block">
+                            <p class="text-center"><b>Sorry..!</b> Project  You Requested is not avaialble on our server</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>            
+</section>
+<section class="inner-pg-dash" ng-if="vm.apiresult == 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="project_pg section">
+
+                    <article class="pro_box">
+                        <div class="pro_head">
+
+                            <div class="pro_right" ng-if="vm.isLogin">
+                                <div class="votes">
+                                    <div component="post/upvote" ng-click="vm.getProjectLikes()" class="vote_left project-vote-{{ vm.projectid }}  heart"></div>
+                                    <span component="post/vote-count" class="vote_count"  ng-bind="vm.projectInfo.votes">
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="pro_left">
+                                <div class="avator img">
+                                    <img src="images/project1.jpg" alt="" title="" />
+                                </div>
+                                <span class="">
+                                    <a ng-href="/rockstar/{{vm.projectInfo.userid}}" ng-bind="vm.projectInfo.username"></a>
+                                </span>
+                                <h3 ng-bind="vm.projectInfo.challenge_title"></h3>
+                                <span class="meta" ng-bind="vm.projectInfo.last_updated_date"></span>
+
+                                <!-- 
+                                <span class="dot">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="meta" ng-bind="vm.projectInfo.language"> </span>
+                                -->
+
+                                <span class="dot">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="meta" ng-bind="vm.projectInfo.mode">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </span>
+
+                                <span class="dot">
+                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="meta">
+                                    <a href="{{vm.projectInfo.project_link}}" target="_blank">view code</a>
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="pro_foot">
+                            <div class="content-box simple content box">
+                                <div class="content-box simple-content">
+                                    <div class="category_title pull-left">
+                                        Tags :
+                                    </div>
+
+                                    <div ng-show="vm.projectInfo.tags.length > 0 ">
+                                        <div class="category_content pull-left" ng-repeat="item in vm.projectInfo.tags">
+                                            <span class="tooltip-con"> {{item}}</span>
+                                        </div>
+                                    </div>
+                                    <div ng-show="vm.projectInfo.tags.length == 0">
+                                        &nbsp;&nbsp; (not available)
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 
+                        
+                        <article class="grap row section">
+                            <div class="col-md-3">
+                                <div class="cirlecd text-center">
+                                    <h4>Curiosity Score</h4>
+                                    <div class="first circle"> <strong></strong> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="cirlecd text-center">
+                                    <h4>Effort Score</h4>
+                                    <div class="second circle"> <strong></strong> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="cirlecd text-center">
+                                    <h4>Peer Rating</h4>
+                                    <div class="third circle"> <strong></strong> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="cirlecd text-center">
+                                    <h4>Expert Rating</h4>
+                                    <div class="fourth circle"> <strong></strong> </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                         -->
+
+                    <!-- Peer comments -->
+                    <article class="pro article-block">
+                        <div class="content-box__title-bar">
+                            <div class="content-box__title">Peer Comments</div>
+                        </div>
+                        <div class="pro_cont">
+                            <div ng-show="vm.projectInfo.peer_comments.length > 0 ">
+                                <ul  data-obj="{{ vm.projectInfo.peer_comments }}" ng-repeat="peer_comment in vm.projectInfo.peer_comments">
+                                    <li>
+                                        <div ng-bind-html="peer_comment.comments | nl2br" style="line-height: 30px;">
+                                        </div>
+
+                                        <div style="margin-top: 10px; float: right;">
+                                            by: {{peer_comment.updated_by_username}} 
+                                            <br>
+                                            <div class="vote-comment" ng-if="vm.isLogin">
+                                            Vote: <div component="post/upvote" ng-click="vm.getProjectCommentLike(peer_comment.updated_by ,peer_comment.updated_date)" class="vote_left heart comment-heart-{{ peer_comment.updated_by  }}"></div>
+                                           </div>
+                                        </div>
+
+                                        <div style="clear: both">
+                                        </div>
+                                    </li>
+
+                                    <div ng-show="$index < vm.projectInfo.peer_comments.length - 1">
+                                        <hr>
+                                    </div>
+
+                                </ul>
+                            </div>
+                            <div ng-show="! vm.projectInfo.peer_comments.length > 0 ">
+                                No Data Available
+                            </div>
+                        </div>
+                    </article>
+                    <!--/ Peer comments -->
+
+
+                    <!-- Expert comments -->
+                    <article class="pro article-block">
+                        <div class="content-box__title-bar">
+                            <div class="content-box__title">Expert Comments</div>
+                        </div>
+                        <div class="pro_cont">
+                            <div ng-show="vm.projectInfo.expert_comments.length > 0 ">
+                                <ul ng-repeat="expert_comment in vm.projectInfo.expert_comments ">
+
+                                    <li>
+                                        <div ng-bind-html="expert_comment.comments | nl2br" style="line-height: 30px;">
+                                        </div>
+
+                                        <div style="margin-top: 10px; float: right;">
+                                                by: {{expert_comment.updated_by_username}} 
+                                                <br>
+                                                <div class="vote-comment" ng-if="vm.isLogin">
+                                                Vote: <div component="post/upvote" ng-click="vm.getProjectCommentLike(expert_comment.updated_by ,expert_comment.updated_date)" class="vote_left heart comment-heart-{{ expert_comment.updated_by  }}"></div>
+                                                </div>
+                                            </div>
+
+                                        <div style="clear: both">
+                                        </div>
+                                    </li>
+
+                                    <div ng-show="$index < vm.projectInfo.expert_comments.length - 1">
+                                        <hr>
+                                    </div>
+
+                                </ul>
+                            </div>
+                            <div ng-show="! vm.projectInfo.expert_comments.length >0">
+                                No Data Available
+                            </div>
+                        </div>
+                    </article>
+                    <!--/ Expert comments -->
+
+
+                    <!-- Tech comments -->
+                    <article class="pro article-block">
+                        <div class="content-box__title-bar">
+                            <div class="content-box__title">Tech components</div>
+                        </div>
+                        <div class="pro_cont | nl2br">
+                            <div ng-show="vm.projectInfo.tech_components.length > 0 ">
+                                <ul ng-repeat="components in vm.projectInfo.tech_components">
+                                    <li>
+                                        <i class="fa" aria-hidden="true"></i>{{components}} </li>
+                                </ul>
+                            </div>
+                            <div ng-show="! vm.projectInfo.tech_components.length > 0 ">
+                                No Data Available
+                            </div>
+                        </div>
+                    </article>
+                    <!--/ Tech comments -->
+
+
+                    <div class="comment-list__login-warning" ng-if="!vm.isLogin">
+                        <h4>If you want to add comment and like for this project</h4>
+                        <br/>
+                        <br/>
+                        <button ng-click="vm.makeUserLogin()" class="btn btn-primary">
+                            Sign in to this project.
+                        </button>
+                    </div>
+
+                    <div class="comment_container" ng-if="vm.isLogin  && !vm.gaveProjectCommentsByPeer">
+                        <div class="commentsbox">
+                            <h4 class="comments-heading">Comment</h4>
+                            <p>Please share your comments about the project. Required fields are marked
+                                <span class="red">*</span>
+                            </p>
+                            <br>
+                            <form id="commentform" name="vm.activityForm" ng-submit="vm.saveProjectComment(vm.activityForm.$valid)" novalidate>
+                                <div id="comment-message" class="form-row form-group" ng-class="{ 'has-error' : vm.activityForm.peerComment.$invalid && !vm.activityForm.email.$pristine && vm.activityForm.$submitted }">
+                                    <textarea required name="peerComment" class="form-control" placeholder="Message" id="comment" cols="100" rows="10" tabindex="4"
+                                        ng-model="vm.peerComment.comments"></textarea>
+                                    <p ng-show="vm.activityForm.$submitted && vm.activityForm.peerComment.$invalid && !vm.loginForm.peerComment.$pristine" class="help-block">You forgot to enter comments!</p>
+                                </div>
+                                <input class="btn-primary btn btn-md" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit Comment">
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                    <div class="comment_container" ng-if="vm.isLogin && vm.projectInfo.logged_user_info.expert == 1 && !vm.gaveProjectTechComponentsByPeer">
+                        <div class="commentsbox">
+                            <h4 class="comments-heading">Tech Components (available only for experts)</h4>
+                            <p>Please share your tech about the project. Required fields are marked
+                                <span class="red">*</span>
+                            </p>
+                            <br>
+                            <form id="addProfileTagForm" name="vm.expertCommentForm" ng-submit="vm.saveProjectTechComponent(vm.expertCommentForm.$valid)"
+                                novalidate>
+                                <div id="comment-message" class="form-row form-group" ng-class="{ 'has-error' : vm.expertCommentForm.peerTechComponent.$invalid && vm.expertCommentForm.peerTechComponent.$pristine && vm.expertCommentForm.$submitted }">
+                                    <textarea required name="peerTechComponent" class="form-control" placeholder="Message" id="comment" cols="100" rows="10"
+                                        tabindex="4" ng-model="vm.peerTechComponent.components"></textarea>
+                                    <p ng-show="vm.expertCommentForm.$submitted && vm.expertCommentForm.peerTechComponent.$invalid && vm.expertCommentForm.peerTechComponent.$pristine"
+                                        class="help-block">You forgot to enter tech components!</p>
+                                </div>
+                                <input class="btn-primary btn btn-md" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Submit Comment">
+                            </form>
+
+                        </div>
+                    </div>
+
+                   <!-- <div class="comment_container" ng-if="vm.isLogin && vm.projectInfo.logged_user_info.expert == 1">
+                        <div class="commentsbox">
+                            <h4 class="comments-heading">Add tags</h4>
+                            <form id="addProfileTagForm" name="vm.addProfileTagForm" ng-submit="vm.expertAddTags(vm.addProfileTagForm.$valid)"
+                                novalidate>
+                                <div id="comment-message" class="form-row form-group" ng-class="{ 'has-error' : vm.addProfileTagForm.expertTags.$invalid && vm.addProfileTagForm.expertTags.$pristine && vm.addProfileTagForm.$submitted }">
+
+                                   <!-- <input required name="expertTags" class="form-control" placeholder="Message" id="comment" cols="100" rows="10"
+                                        tabindex="4" ng-model="vm.expertTags.tags"> --><!-- 
+                                    
+                                     <md-chips ng-model="vm.projectInfo.tags" name="fruitName"
+                                        md-removable="true" placeholder="Enter tags..."
+                                        ng-change="vm.expertTags(vm.projectInfo.tags)">
+                                            <md-chip-template>
+                                            <strong>{{$chip}}</strong>
+                                            </md-chip-template>
+                                        </md-chips> 
+                                </div>
+                                <input class="btn-primary btn btn-md" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Update tag">
+                            </form>
+
+                        </div>
+                    </div>-->
+
+                    <div class="comment_container" ng-if="vm.isLogin && vm.projectInfo.logged_user_info.expert == 1">
+                        <div class="commentsbox">
+                            <h4 class="comments-heading">Add tags</h4>
+                            <form id="addProfileTagForm" name="vm.addProfileTagForm" ng-submit="vm.expertAddTags(vm.addProfileTagForm.$valid)"
+                                novalidate>
+                                <div id="comment-message" class="form-row form-group" ng-class="{ 'has-error' : vm.addProfileTagForm.expertTags.$invalid && vm.addProfileTagForm.expertTags.$pristine && vm.addProfileTagForm.$submitted }">
+
+                                 <input required name="expertTags" class="form-control" placeholder="Message" id="comment" cols="100" rows="10"
+                                        tabindex="4" ng-model="vm.expertTags.tags"> 
+                              
+                                    <!-- <md-chips ng-model="vm.expertTags.tags" name="fruitName"
+                                        md-removable="true" placeholder="Enter tags..."
+                                        ng-change="vm.expertTags(vm.expertTags.tags)">
+                                            <md-chip-template>
+                                            <strong>{{$chip}}</strong>
+                                            </md-chip-template>
+                                        </md-chips> -->
+                                </div>
+                                <input class="btn-primary btn btn-md" name="submit" type="submit" id="commentSubmit" tabindex="5" value="Update tag">
+                            </form>
+
+                        </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <a href="" class="btn pull-right btn-default" ng-click="vm.addEmptyRow()">
+            <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp; Add Problem Solved</a>
+        <h3>Problems Solved In My Career</h3>
+    </div>
+    <section class="page_content">
+        <div class="row">
+            <div class="col-md-12 formarea">
+                <label for="exampleTextarea" class="block-label">Share some experience in career that you solved critical problems</label>
+                <p>Make your statement in 1 or 2 simple lines! Little bit technical details okay but too much tech-lingo will
+                    make them bored!</p>
+                <div class="form-group formarea" ng-repeat="line in vm.problemSolvedInfo.list track by $index">
+                    <button ng-if="vm.problemSolvedInfo.list.length > 1" class="btn btn-danger remove_btn" ng-click="vm.deleteRow($index)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                    <textarea class="form-control" id="exampleTextarea" rows="5" ng-model="line.ps" style=""></textarea>
+                </div>
+                <span class="small">300 characters remaining</span>
+            </div>
+        </div>
+    </section>
+    <div class="page_footer">
+        <a href="" class="btn-primary btn pull-left" ng-click=" vm.updateProblemSolvedInfo()">Save</a>
+        <a href="" class="btn-white btn pull-right" ui-sref="accounts.learned">Next</a>
+    </div>
+</section>

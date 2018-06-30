@@ -1,0 +1,86 @@
+<section class="inner-pg-dash">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="title-cal text-center">
+							<h2>Fake Company Identifier</h2>
+						</div>
+
+						<div class="box-search">
+							<form class="form-inline">
+								<div class="form-group">
+									<div class="input-group">
+										<input type="text" class="form-control" ng-model="vm.name"
+											id="exampleInputAmount" placeholder="Enter Your Company Name">
+									</div>
+								</div>
+								<button type="button"
+									ng-click="vm.getCompanySearch(vm.activityForm.$valid)"
+									class="btn btn-primary">Search</button>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-8 col-md-offset-2">
+						<div class="table-wrapper">
+
+							<!-- 
+                            <p class="text-center my-table alert alert-danger">
+                            	<strong>Oh Sorry,</strong> We have not found this company name.
+                            </p>
+                            -->
+							<div class="table-responsive">
+								<ul class="queue_list queue_list_recommend">
+
+									<li class="item item_recommend item_type_recommend">
+										<div class="item_content">
+											<div class="item_content_text">
+												<div class="title_head_com">
+													<a class="title" href="#">{{vm.fakeCompanyInfo.name}} </a>
+												</div>
+												<p class="company_message"
+													ng-bind="vm.fakeCompanyInfo.message"></p>
+
+												<!-- 			
+												<div class="title">
+													<h4>Criteria Used:</h4>
+													<ul ng-repeat="item in vm.fakeCompanyInfo.criteria">
+														<li>{{item}}</li>
+													</ul>
+												</div>
+												-->
+
+												<nav class="item_content_actions recommend_footer">
+													<ul class="item_content_actionscontainer">
+														<li class="item_content_savecontainer"><span
+															class="item_content_save"> <span
+																class="item_content_savetext"
+																ng-bind="vm.fakeCompanyInfo.founded"></span>
+														</span></li>
+														<li class="item_content_hidecontainer"><span
+															class="item_content_overflow">
+																<div id="talkbubble">
+																	Authentication score: <span class="count"
+																		ng-bind="vm.fakeCompanyInfo.authentication_score"></span>%
+																</div>
+														</span></li>
+													</ul>
+												</nav>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+

@@ -1,0 +1,45 @@
+<section class="page_inner">
+    <div class="page_heading">
+        <h3>Anonymous referral</h3>
+    </div>
+    <form name="vm.activityForm" ng-submit="vm.anonymousReferralInfo(vm.activityForm.$valid)" novalidate>
+        <section class="anonymous-referral_content row page_content">
+            <div class="required col-md-8 col-sm-8 col-xs-8">
+                <div class="required col-md-8 col-sm-8 col-xs-8">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Sender Name </label>
+                        <input type="text" class="form-control" id="Sender-Name" name="Sender-Name" placeholder="Enter the sender name"
+                            ng-model="vm.anonymousInfo.sender_name" style=""> 
+
+                    </div>
+                </div>
+                <div class="required col-md-8 col-sm-8 col-xs-8">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_phone"> Sender Email </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="Sender-Email" name="Sender-Email" placeholder="Enter the sender email"
+                            ng-model="vm.anonymousInfo.sender_email" style="">                            
+                    </div>
+                </div>
+                <div class="required col-md-8 col-sm-8 col-xs-8">
+                        <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> To Emails </label>
+                        <input type="text" class="form-control boxes text-input input--full" id="To-Emails" name="To-Emails"
+                            placeholder="Enter the receipt mail " ng-model="vm.anonymousInfo.to_emails"
+                            style="">
+                    </div>
+                </div>
+                <div class="required col-md-8 col-sm-8 col-xs-8">
+                    <div class="form-group">
+                        <label class="block-label sm-mb0" for="candidates_profile_personal_info_name"> Message Template </label>
+                        <textarea rows="4" type="text" class="form-control boxes text-input input--full" id="Message-Template" name="Message-Template" placeholder="Expect message "
+                            ng-model="vm.anonymousInfo.message"></textarea>
+                            
+                     </div>
+                </div>            
+            </div>
+        </section>
+        <div class="page_footer">
+            <a type="submit" ng-click="vm.anonymousReferralInfo(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Submit</a>
+        </div>
+    </form>
+</section>

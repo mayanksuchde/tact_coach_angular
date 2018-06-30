@@ -1,0 +1,51 @@
+<section class="page_inner">
+        <div class="page_heading">
+            <h3>Goals</h3>
+        </div>
+        <!--goal_entry -->
+        <section>
+                <h4>Current Goal</h4>
+                <div class="row" ng-repeat="goal in vm.currentGoalsList"> 
+                    <div class="col-md-8">
+                        <br>
+                        <p>{{ goal.GOAL_DESCRIPTION }}</p>                            
+                    </div>
+                    <div class="col-md-4  text-center well">
+                        <h1 class="fz50">{{ goal.DAYS }}</h1>
+                        <h4>Days Left</h4>
+                    </div>
+        
+                </div>
+            </section>
+            <section>
+                <form name="vm.goal_entry_form">
+                    <div class="row">
+                        <div class="form-group col-md-8" ng-class="{ 'has-error' : vm.goal_entry_form.goal_entry_content.$invalid && !vm.goal_entry_form.goal_entry_content.$pristine }">    
+                            <textarea class="form-control" id="comment" name="comment" rows="5" 
+                            placeholder="What have you done recently on your goal?"
+                                ng-model="vm.goal_entry.description"></textarea>    
+                                
+                            <p ng-show="!vm.goal_entry_form.goal_entry_content.$pristine && vm.goal_entry_form.goal_entry_content.$error.required" class="help-block">This field is required.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success" ng-click="vm.addGoalEntry()">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section>
+                <div class="container-fluid">
+                    <h4>Efforts</h4>
+                    <div ng-if="!vm.goalsEntries || vm.goalsEntries.length == 0" class="text-center well">
+                        You haven't start work on the goal.
+                    </div>
+                    <div ng-repeat="goalsEntry in vm.goalsEntries | orderBy: '-GEID'" id="goalsEntriesList" class="row">                
+                        <div class="col-md-8" ng-bind-html="goalsEntry.DESCRIPTION |  nl2br">                	
+                        </div>
+                        <div class="col-md-2">{{ goalsEntry.UPDATED_DATE | date }}</div>
+                        <div class="col-md-2"> <button class="btn btn-danger" ng-click="vm.deleteGoalEntry(goalsEntry)"> delete </button> </div>
+                    </div>
+                </div>
+            </section>
+</section>
+   

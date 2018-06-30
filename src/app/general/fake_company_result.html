@@ -1,0 +1,121 @@
+<style>
+    .w3-card {
+        height: 110px;
+        position: relative;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+    .w3-panel {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        padding-top: 10px;
+    }
+    .user-detail {
+        -webkit-transition:all linear 0.5s;
+        transition:all linear 0.5s;
+    }
+    .user-detail.ng-hide {
+        opacity: 0;
+    }
+    .user-detail.ng-show {
+        opacity: 0;
+    }
+    #loader {
+        z-index: 1;
+        border: 5px solid #f3f3f3;
+        animation: spin 1s linear infinite;
+        border-top: 5px solid #555;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 46%;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        #seven-backdrop {
+            position: absolute;
+            display: none;
+            top: -16px;
+            bottom: 0px;
+            background: black;
+            border: 1px solid;
+            left: 0;
+            right: 0;
+            opacity: 0.3;
+            margin: 15px;
+            border-radius: 5px;
+        }
+        
+        h2{
+            text-align: center;
+        }
+
+</style>
+
+<section class="inner-pg-dash">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="page_inner">
+                            <div class="page_heading">
+                                <h2 class="title">Fake Company Identifier</h2>
+                                <div class="post-meta">
+                                    <div class="post-meta-info">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                            	<div class="col-md-6" style="margin-left: 20px; margin-top: 50px;">
+                            		<input type="text" class="form-control" id="Name" name="Name" placeholder="Enter the company name"
+                            		ng-model="vm.name" style="">
+                            	</div>
+                            	<div class="col-md-4" style="margin-left: 20px; margin-top: 50px;">
+                            		<a type="submit" ng-click="vm.getCompanySearch(vm.activityForm.$valid)" href="" class="btn-primary btn pull-left">Search</a>
+                            	</div>
+                            </div>
+                            
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="article-details">
+                                        <div class="content-area">				
+                                            <p class="title">Name: one</p>
+                                            <p class="title">Founded: 1990</p>
+                                            <p class="title">Authentication score: 42</p>
+                                            <p class="title">Message: Might not be a good company for you. We are not able to authenticate this company from our public search</p>
+                                      
+                                        <div class="bottom-area">
+                                            
+                                        
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+ 
+
+

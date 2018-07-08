@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app')
-        //.constant('api_base', 'http://devapi.talentaccurate.com')
+        .constant('api_base', 'http://devapi.talentaccurate.com')
         //.constant('api_base', 'http://betaapi.talentaccurate.com')
-        .constant('api_base', 'http://localhost:8035/tactbase')        
+        //.constant('api_base', 'http://localhost:8035/tactbase')        
         .service('HttpRequestFactory',
         ['api_base', 'Authentication', '$http', '$q', '$httpParamSerializer', HttpRequestFactory]);
 
@@ -21,6 +21,8 @@
 
         requestFactory.fetchCompanyDetails = fetchCompanyDetails;
         requestFactory.submitRockstarLogin = submitRockstarLogin;
+        requestFactory.submitCoachLogin = submitCoachLogin;
+        
         requestFactory.submitRockstarForgot = submitRockstarForgot;
         requestFactory.submitRockstarResetPass = submitRockstarResetPass; 
 
@@ -219,6 +221,11 @@
         function submitRockstarLogin(loginInfo) {
             return post('/cview/login/json', loginInfo, false, true)
         }
+
+        function submitCoachLogin(loginInfo) {
+            return post('/coachview/login/json', loginInfo, false, true)
+        }
+        
         
         function subscribeNewsletter(userInfo) {
             return post('/add/early/adopter/json', userInfo, false, true)

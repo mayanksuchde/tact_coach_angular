@@ -125,6 +125,29 @@
 				},
 			})
 
+			// coach page information starts
+			
+			//linedin info public page
+			.state('linkedin-profiles', {
+				url: "/linkedin-profiles",
+				views: {
+					'header-view': {
+						template: "<page-header></page-header>"
+					},
+					"container-view@": {
+						templateUrl: 'app/linkedin-profiles/linkedin-profiles.html',
+						controller: 'LinkedinProfilesController',
+						controllerAs: 'vm'
+					},
+					'footer-view': {
+						template: "<page-footer></page-footer>"
+					},
+				},
+				requireLogin: true
+			})
+
+			// coach page information ends
+
 			.state('company-info', {
 				url: "/company/:companyId",
 				views: {

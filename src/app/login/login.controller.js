@@ -28,7 +28,7 @@
 					var promise = HttpRequestFactory.googleLogin(response)
 
 					promise.then(function (response) {
-						var toState = "accounts";
+						var toState = "linkedin-profiles";
 						var toParams = {};
 
 						if (response.apiresult == 0) {
@@ -56,7 +56,7 @@
 								toState = angular.copy(toState.name);
 								Global.setToRequestState({});
 							} else {
-								toState = "accounts"
+								toState = "linkedin-profiles"
 							}
 							$state.go(toState, toParams)
 						} else {
@@ -90,8 +90,8 @@
 				var toState = "candidates";
 				var toParams = {};					
 			}else{
-				var promise = HttpRequestFactory.submitRockstarLogin(vm.user);	
-				var toState = "accounts";
+				var promise = HttpRequestFactory.submitCoachLogin(vm.user);	
+				var toState = "linkedin-profiles";
 				var toParams = {};		
 			}
 			promise.then(function (response) {
@@ -113,7 +113,7 @@
 						toState = angular.copy(toState.name);
 						Global.setToRequestState({});
 					} else {
-						toState = vm.isEmployer ? "candiates" : "accounts";
+						toState = vm.isEmployer ? "candiates" : "linkedin-profiles";
 					}
 					$state.go(toState, toParams)
 				} else {
